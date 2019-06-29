@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "83027f426c8fc503c344cf01f6a53ae5",
+    "revision": "9c9b892a4cb1f9126d191fd29b765ab0",
     "url": "/real_talk/index.html"
   },
   {
-    "revision": "f803a5ee9cc08fb8b70d",
+    "revision": "f54fba1de76d8a5acd7f",
     "url": "/real_talk/static/css/main.2cce8147.chunk.css"
   },
   {
-    "revision": "45124f853ba07aa965c0",
-    "url": "/real_talk/static/js/2.6efc73d3.chunk.js"
+    "revision": "681b51057d74cfa8975d",
+    "url": "/real_talk/static/js/2.65aa1cca.chunk.js"
   },
   {
-    "revision": "f803a5ee9cc08fb8b70d",
-    "url": "/real_talk/static/js/main.4daf0a40.chunk.js"
+    "revision": "f54fba1de76d8a5acd7f",
+    "url": "/real_talk/static/js/main.11c331da.chunk.js"
   },
   {
     "revision": "d57235e776b9e6ca1291",
