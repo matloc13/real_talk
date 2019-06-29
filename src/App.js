@@ -1,52 +1,72 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-let baseUrl = 'https://matloc13.github.io/real_talk/'
+
+import NewPost from './components/NewPost.js'
+import { getCiphers } from 'tls';
+let baseURL = process.env.REACT_APP_BASEURL
+
+
+
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3003'
+} else {
+  baseURL = 'https://realtalkblog.herokuapp.com/'
+}
+
+console.log('Current Base URL: ', baseURL)
+
 
 class App extends Component{
   state = {
-    blogPosts: []
+    blogPosts: [],
+    blogPost: {}
   }
-  getPosts = () => {
-    fetch(baseUrl + '/blogposts').then(data => data.json(), err => console.log(err)).then(parsedData => this.setState({
-      blogPosts: parsedData
-    }))
+
+  componentDidMount () {
+    this.getBlogPosts()
   }
-  // handleChange = (event) => {
-  //   this.setState({
-  //     [event.target.id]: event.target.value
-  //   })
-  // }
-  componentDidMOunt = () => {
-    this.getPosts()
+
+  getBlogPosts = () => {
+    fetch(baseURL + '/blogposts')
+    .then(data => {
+      return data.json()},
+      error => console.error(error))
+      .then(parsedData => this.setState({blogPosts: parsedData}),
+      error => console.error(error))
   }
+
+  addBlogPost = (blogPost) => {
+    const copyBlogPosts = [...this.state.blogPosts]
+    copyBlogPosts.unshift(blogPost)
+    this.setState({
+      blogPosts: copyBlogPosts,
+      title: ''
+    })
+  }
+
+
   render() {
-
-  return (
-    <div className="App">
-      <h1>hello</h1>
-
-      <div className="displayPosts">
-        <ul>
-          {
-            this.state.blogPosts.map(blogPost =>
-              <li key={blogPost._id}>
-                {blogPost.title}
-              </li>
+    return (
+      <div className="App">
+        <h1>Real Talk</h1>
+        <NewPost
+          baseURL={baseURL}
+          addBlogPost={this.addBlogPost}
+        />
+        {
+          this.state.blogPosts.map(post => {
+            return (
+              <div className="container">
+                <h2 key={post._id}>{post.title}</h2>
+                <h5 key={post._id}>Edit</h5>
+                <p>{post.blogPostBody}</p>
+              </div>
             )
-          }
-        </ul>
+          })
+        }
       </div>
-
-      {/* <form onSubmit="">
-        <label htmlFor="title">Title</label>
-        <input type="text" id="title" onChange={this.handleChange}/>
-        <label htmlFor="post">Post</label>
-        <textarea name="post" id="post"></textarea>
-      </form> */}
-
-    </div>
-  );
+    );
   }
 }
 
