@@ -48,8 +48,9 @@ class App extends Component{
   render() {
     return (
       <div className="App">
+        <h1>Real Talk</h1>
         <NewPost
-          baseuURL={baseURL}
+          baseURL={baseURL}
           addBlogPost={this.addBlogPost}
         />
         {
@@ -57,7 +58,7 @@ class App extends Component{
             return (
               <div className="container">
                 <h2 key={post._id}>{post.title}</h2>
-                <h3 key={post._id}>Edit</h3>
+                <h5 key={post._id}>Edit</h5>
                 <p>{post.blogPostBody}</p>
               </div>
             )
