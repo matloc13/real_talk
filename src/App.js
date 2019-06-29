@@ -8,20 +8,15 @@ class App extends Component{
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>hello</h1>
+
+      <form onSubmit="">
+        <label htmlFor="title">Title</label>
+        <input type="text" id="title" onChange={}/>
+        <label htmlFor="post">Post</label>
+        <textarea name="post" id="post"></textarea>
+      </form>
+
     </div>
   );
   }
