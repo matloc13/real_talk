@@ -15,7 +15,7 @@ class UpdatePost extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(this.props.baseURL + '/blogposts' + this.props.body._id, {
+        fetch(this.props.baseURL + '/blogposts' + this.props._id, {
             method: 'PUT',
             body: JSON.stringify({
                 title: this.state.title,

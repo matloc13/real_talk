@@ -52,6 +52,17 @@ class App extends Component{
           baseuURL={baseURL}
           addBlogPost={this.addBlogPost}
         />
+        {
+          this.state.blogPosts.map(post => {
+            return (
+              <div className="container">
+                <h2 key={post._id}>{post.title}</h2>
+                <h3 key={post._id}>Edit</h3>
+                <p>{post.blogPostBody}</p>
+              </div>
+            )
+          })
+        }
       </div>
     );
   }
