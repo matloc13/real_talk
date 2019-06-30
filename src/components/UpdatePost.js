@@ -7,15 +7,16 @@ class UpdatePost extends React.Component {
         blogPostBody: ''
     }
 
-    handleChange = (event) => {
+    componentDidMount () {
         this.setState({
-            [event.target.id]: event.target.value
+            title: this.props.title,
+            blogPostBody: this.props.blogPostBody
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(this.props.baseURL + '/blogposts/' + this.props._id, {
+        fetch(this.props.baseURL + '/blogposts/' + this.props.id, {
             method: 'PUT',
             body: JSON.stringify({
                 title: this.state.title,
@@ -32,6 +33,7 @@ class UpdatePost extends React.Component {
                 blogPostBody: ''
             })
         }).catch (error => console.error({'Error': error}))
+        this.props.getBlogPosts();
     }
 
     

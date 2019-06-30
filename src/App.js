@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import NewPost from './components/NewPost.js'
+import UpdatePost from './components/UpdatePost.js'
 import { getCiphers } from 'tls';
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -40,8 +41,13 @@ class App extends Component{
     const copyBlogPosts = [...this.state.blogPosts]
     copyBlogPosts.unshift(blogPost)
     this.setState({
-      blogPosts: copyBlogPosts,
-      // title: ''
+      blogPosts: copyBlogPosts
+    })
+  }
+
+  handleChange = (event) => {
+    this.setState({
+        [event.target.id]: event.target.value
     })
   }
 
@@ -54,14 +60,15 @@ class App extends Component{
         <NewPost
           baseURL={baseURL}
           addBlogPost={this.addBlogPost}
+          handleChange={this.handleChange}
         />
 
         {
           this.state.blogPosts.map(post => {
             return (
               <div className="container" key={post._id}>
-                <h2 key={post._id}>{post.title}</h2>
-                <h5 key={post._id}>Edit</h5>
+                <h2>{post.title}</h2>
+                <h5>Edit</h5>
                 <p>{post.blogPostBody}</p>
               </div>
             )
