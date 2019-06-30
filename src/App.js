@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 import NewPost from './components/NewPost.js'
@@ -50,10 +50,12 @@ class App extends Component{
     return (
       <div className="App">
         <h1>Real Talk</h1>
+
         <NewPost
           baseURL={baseURL}
           addBlogPost={this.addBlogPost}
         />
+
         {
           this.state.blogPosts.map(post => {
             return (
@@ -65,7 +67,8 @@ class App extends Component{
             )
           })
         }
-      </div>
+
+          </div>
     );
   }
 }

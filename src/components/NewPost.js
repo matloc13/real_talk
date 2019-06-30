@@ -26,11 +26,12 @@ class NewPost extends React.Component {
             }
         }).then (res => res.json())
         .then(resJson => {
-            this.props.addBlogPost(resJson)
+
             this.setState({
                 title: '',
                 blogPostBody: ''
             })
+            this.props.addBlogPost(resJson)
         }).catch (error => console.error({'Error': error}))
     }
 
@@ -38,14 +39,27 @@ class NewPost extends React.Component {
     render () {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit}>
 
-                    <label htmlFor="title">Title</label>
-                    <input type="text" name="title" placeholder="Sample Title" onChange={this.handleChange} />
+                <label htmlFor="title">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Sample Title"
+                  
+                  onChange={this.handleChange}
+
+                />
+
+                <label htmlFor="blogPostBody">Body</label>
+                <input
+                  type="textarea"
+                  name="blogPostBody" onChange={this.handleChange}
 
 
-                    <label htmlFor="blogPostBody">Body</label>
-                    <input type="textarea" name="blogPostBody" onChange={this.handleChange} />
+                />
+
+
 
                     <input type="submit" value="Submit New Post"/>
                 </form>
