@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/real_talk/static/css/main.2cce8147.chunk.css",
-    "main.js": "/real_talk/static/js/main.5a04c12b.chunk.js",
-    "main.js.map": "/real_talk/static/js/main.5a04c12b.chunk.js.map",
+    "main.js": "/real_talk/static/js/main.23777d76.chunk.js",
+    "main.js.map": "/real_talk/static/js/main.23777d76.chunk.js.map",
     "runtime~main.js": "/real_talk/static/js/runtime~main.2c182053.js",
     "runtime~main.js.map": "/real_talk/static/js/runtime~main.2c182053.js.map",
-    "static/js/2.6ff463b9.chunk.js": "/real_talk/static/js/2.6ff463b9.chunk.js",
-    "static/js/2.6ff463b9.chunk.js.map": "/real_talk/static/js/2.6ff463b9.chunk.js.map",
+    "static/js/2.cd6479a0.chunk.js": "/real_talk/static/js/2.cd6479a0.chunk.js",
+    "static/js/2.cd6479a0.chunk.js.map": "/real_talk/static/js/2.cd6479a0.chunk.js.map",
     "index.html": "/real_talk/index.html",
-    "precache-manifest.3731de7113999a06ed98a4d704efb680.js": "/real_talk/precache-manifest.3731de7113999a06ed98a4d704efb680.js",
+    "precache-manifest.2665e62b3a633cad544d70de8fd059f9.js": "/real_talk/precache-manifest.2665e62b3a633cad544d70de8fd059f9.js",
     "service-worker.js": "/real_talk/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/real_talk/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/real_talk/static/media/logo.5d5d9eef.svg"
+    "static/css/main.2cce8147.chunk.css.map": "/real_talk/static/css/main.2cce8147.chunk.css.map"
   }
 }
