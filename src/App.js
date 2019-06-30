@@ -60,8 +60,9 @@ class App extends Component{
           this.state.blogPosts.map(post => {
             return (
               <div className="container" key={post._id}>
-                <h2 key={post._id}>{post.title}</h2>
-                <h5 key={post._id}>Edit</h5>
+                <h2>{post.title}</h2>
+                <span>{post.date}</span>
+                <h5>{post.author}</h5><span>Edit</span>
                 <p>{post.blogPostBody}</p>
               </div>
             )
