@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 import NewPost from './components/NewPost.js'
@@ -41,7 +41,7 @@ class App extends Component{
     copyBlogPosts.unshift(blogPost)
     this.setState({
       blogPosts: copyBlogPosts,
-      title: ''
+      // title: ''
     })
   }
 
@@ -50,22 +50,26 @@ class App extends Component{
     return (
       <div className="App">
         <h1>Real Talk</h1>
+
         <NewPost
           baseURL={baseURL}
           addBlogPost={this.addBlogPost}
         />
+
         {
           this.state.blogPosts.map(post => {
             return (
-              <div className="container">
-                <h2 key={post._id}>{post.title}</h2>
-                <h5 key={post._id}>Edit</h5>
+              <div className="container" key={post._id}>
+                <h2>{post.title}</h2>
+                <span>{post.date}</span>
+                <h5>{post.author}</h5><span>Edit</span>
                 <p>{post.blogPostBody}</p>
               </div>
             )
           })
         }
-      </div>
+
+          </div>
     );
   }
 }
