@@ -21,7 +21,7 @@ class NewPost extends React.Component {
                 title: this.state.title,
                 blogPostBody: this.state.blogPostBody
             }),
-            header: {
+            headers: {
                 'Content-Type': 'application/json'
             }
         }).then (res => res.json())
@@ -46,16 +46,28 @@ class NewPost extends React.Component {
                   type="text"
                   name="title"
                   placeholder="Sample Title"
-                  
+                  id="title"
                   onChange={this.handleChange}
 
                 />
+                <input
+                  type="hidden"
+                  name="author"
+                  id="author"
+                  value="usertest"
+                />
+                {/* <input
+                  type="date"
+                  name="date"
+                  id="date"
+                value={()=> date.now()}/> */}
 
                 <label htmlFor="blogPostBody">Body</label>
                 <input
                   type="textarea"
-                  name="blogPostBody" onChange={this.handleChange}
-
+                  name="blogPostBody"
+                  id="blogPostBody"
+                  onChange={this.handleChange}
 
                 />
 

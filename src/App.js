@@ -41,7 +41,7 @@ class App extends Component{
     copyBlogPosts.unshift(blogPost)
     this.setState({
       blogPosts: copyBlogPosts,
-      title: ''
+      // title: ''
     })
   }
 
@@ -59,7 +59,7 @@ class App extends Component{
         {
           this.state.blogPosts.map(post => {
             return (
-              <div className="container">
+              <div className="container" key={post._id}>
                 <h2 key={post._id}>{post.title}</h2>
                 <h5 key={post._id}>Edit</h5>
                 <p>{post.blogPostBody}</p>
