@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 import NewPost from './components/NewPost.js'
+import ShowPost from './components/ShowPost.js'
+import UpdatePost from './components/UpdatePost.js'
 import { getCiphers } from 'tls';
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -45,22 +47,39 @@ class App extends Component{
     })
   }
 
+  showPost = (blogPost) => {
+    this.setState({
+      blogPost: blogPost
+    })
+  }
+
 
   render() {
     return (
       <div className="App">
-        <h1>Real Talk</h1>
+        <h1>Real talk</h1>
 
         <NewPost
           baseURL={baseURL}
           addBlogPost={this.addBlogPost}
+        />
+        <ShowPost
+          posts={this.state.blogPosts}
+          post={this.state.blogPost}
+
+        />
+
+        <UpdatePost
+          post={this.state.blogPost}
+          baseURL={baseURL}
+          posts={this.state.blogPosts}
         />
 
         {
           this.state.blogPosts.map(post => {
             return (
               <div className="container" key={post._id}>
-                <h2>{post.title}</h2>
+                <h2 onClick={()=> this.showPost(post)}>{post.title}</h2>
                 <span>{post.date}</span>
                 <h5>{post.author}</h5><span>Edit</span>
                 <p>{post.blogPostBody}</p>
