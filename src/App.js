@@ -80,7 +80,7 @@ class App extends Component{
         <NewPost
           baseURL={baseURL}
           addBlogPost={this.addBlogPost}
-          handleChange={this.handleChange}
+          // handleChange={this.handleChange}
         />
         <ShowPost
           posts={this.state.blogPosts}

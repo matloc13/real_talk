@@ -7,38 +7,38 @@ class UpdatePost extends React.Component {
         blogPostBody: ''
     }
 
-    componentDidMount () {
+    handleChange = (event) => {
         this.setState({
-            title: this.props.title,
-            blogPostBody: this.props.blogPostBody
+            [event.target.id]: event.target.value
         })
     }
 
     handleSubmit = (event) => {
-
         // event.preventDefault();
         fetch(this.props.baseURL + '/blogposts/' + this.props.post._id, {
-
             method: 'PUT',
             body: JSON.stringify({
                 title: this.state.title,
                 blogPostBody: this.state.blogPostBody
             }),
-            headers: {
+            header: {
                 'Content-Type': 'application/json'
             }
         }).then (res => res.json())
         .then(resJson => {
-          const copyBlogPosts = [...this.props.post]
+            this.props.addBlogPost(resJson)
+            const copyBlogPosts = [...this.props.post]
           const findIndex = this.props.posts.findIndex(post => post._id === resJson._id)
           copyBlogPosts[findIndex].title = resJson.title
           copyBlogPosts[findIndex].blogPostBody = resJson.blogPostBody
             this.setState({
-                posts: copyBlogPosts
+                title: '',
+                blogPostBody: ''
             })
         }).catch (error => console.error({'Error': error}))
-        this.props.getBlogPosts();
     }
+
+
 
     render () {
         return (
@@ -59,9 +59,7 @@ class UpdatePost extends React.Component {
                   type="textarea"
                   name="blogPostBody"
                   id="blogPostBody"
-                  defaultValue={this.props.post.blogPostBody}
-                  onChange={this.handleChange}
-                />
+                  defaultValue={this.props.post.blogPostBody} onChange={this.handleChange}/>
 
                     <input type="submit" value="Submit changes"/>
                 </form>
