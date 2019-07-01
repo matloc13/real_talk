@@ -4,8 +4,10 @@ import React from 'react'
 class NewPost extends React.Component {
     state = {
         title: '',
-        blogPostBody: ''
+        blogPostBody: '',
+        author: ''
     }
+
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -13,18 +15,23 @@ class NewPost extends React.Component {
             method: 'POST',
             body: JSON.stringify({
                 title: this.state.title,
-                blogPostBody: this.state.blogPostBody
+                blogPostBody: this.state.blogPostBody,
+                author: this.state.author
             }),
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then (res => res.json())
         .then(resJson => {
+
+          this.props.addBlogPost(resJson)
+
             this.setState({
                 title: '',
-                blogPostBody: ''
+                blogPostBody: '',
+                author: ''
             })
-            this.props.addBlogPost(resJson)
+
         }).catch (error => console.error({'Error': error}))
     }
 
@@ -40,7 +47,10 @@ class NewPost extends React.Component {
                   name="title"
                   placeholder="Sample Title"
                   id="title"
+
                   onChange={this.props.handleChange}
+                  value={this.state.title}
+
 
                 />
                 <input
@@ -56,13 +66,15 @@ class NewPost extends React.Component {
                 value={()=> date.now()}/> */}
 
                 <label htmlFor="blogPostBody">Body</label>
-                <input
+                <textarea
                   type="textarea"
                   name="blogPostBody"
                   id="blogPostBody"
-                  onChange={this.props.handleChange}
 
-                />
+                  onChange={this.props.handleChange}
+                   value={this.state.blogPostBody}
+
+                ></textarea>
 
 
 
