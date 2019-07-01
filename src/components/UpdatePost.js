@@ -22,7 +22,7 @@ class UpdatePost extends React.Component {
                 title: this.state.title,
                 blogPostBody: this.state.blogPostBody
             }),
-            header: {
+            headers: {
                 'Content-Type': 'application/json'
             }
         }).then (res => res.json())

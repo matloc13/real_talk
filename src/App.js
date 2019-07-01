@@ -51,6 +51,17 @@ class App extends Component{
     })
   }
 
+  deleteBlogPost = (id) => {
+    fetch(baseURL + '/blogposts/' + id, {
+      method: 'DELETE'})
+      .then(response => {
+        const index = this.state.blogPosts.findIndex(blogPost => blogPost._id === id)
+        const copyBlogPosts = [...this.state.blogPosts]
+        copyBlogPosts.splice(index, 1)
+        this.setState({blogPost: copyBlogPosts})
+    })
+  }
+
 
   render() {
     return (
@@ -69,6 +80,7 @@ class App extends Component{
               <div className="container" key={post._id}>
                 <h2>{post.title}</h2>
                 <h5>Edit</h5>
+                <h5 onClick={() => this.deleteBlogPost(post._id)}>X</h5>
                 <p>{post.blogPostBody}</p>
               </div>
             )
