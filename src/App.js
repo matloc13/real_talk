@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 import NewPost from './components/NewPost.js'
+
 import ShowPost from './components/ShowPost.js'
+
 import UpdatePost from './components/UpdatePost.js'
 import { getCiphers } from 'tls';
 let baseURL = process.env.REACT_APP_BASEURL
@@ -42,8 +44,24 @@ class App extends Component{
     const copyBlogPosts = [...this.state.blogPosts]
     copyBlogPosts.unshift(blogPost)
     this.setState({
-      blogPosts: copyBlogPosts,
-      // title: ''
+      blogPosts: copyBlogPosts
+    })
+  }
+
+  handleChange = (event) => {
+    this.setState({
+        [event.target.id]: event.target.value
+    })
+  }
+
+  deleteBlogPost = (id) => {
+    fetch(baseURL + '/blogposts/' + id, {
+      method: 'DELETE'})
+      .then(response => {
+        const index = this.state.blogPosts.findIndex(blogPost => blogPost._id === id)
+        const copyBlogPosts = [...this.state.blogPosts]
+        copyBlogPosts.splice(index, 1)
+        this.setState({blogPost: copyBlogPosts})
     })
   }
 
@@ -62,6 +80,7 @@ class App extends Component{
         <NewPost
           baseURL={baseURL}
           addBlogPost={this.addBlogPost}
+          handleChange={this.handleChange}
         />
         <ShowPost
           posts={this.state.blogPosts}
@@ -73,15 +92,20 @@ class App extends Component{
           post={this.state.blogPost}
           baseURL={baseURL}
           posts={this.state.blogPosts}
+          handleChange={this.handleChange}
         />
 
         {
           this.state.blogPosts.map(post => {
             return (
               <div className="container" key={post._id}>
+
+
                 <h2 onClick={()=> this.showPost(post)}>{post.title}</h2>
                 <span>{post.date}</span>
                 <h5>{post.author}</h5><span>Edit</span>
+                <h5 onClick={() => this.deleteBlogPost(post._id)}>X</h5>
+
                 <p>{post.blogPostBody}</p>
               </div>
             )

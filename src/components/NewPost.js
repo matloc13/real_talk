@@ -8,11 +8,7 @@ class NewPost extends React.Component {
         author: ''
     }
 
-    handleChange = (event) => {
-        this.setState({
-            [event.target.id]: event.target.value
-        })
-    }
+
     handleSubmit = (event) => {
         event.preventDefault();
         fetch(this.props.baseURL + '/blogposts', {
@@ -27,7 +23,9 @@ class NewPost extends React.Component {
             }
         }).then (res => res.json())
         .then(resJson => {
+
           this.props.addBlogPost(resJson)
+
             this.setState({
                 title: '',
                 blogPostBody: '',
@@ -49,8 +47,11 @@ class NewPost extends React.Component {
                   name="title"
                   placeholder="Sample Title"
                   id="title"
-                  onChange={this.handleChange}
+
+                  onChange={this.props.handleChange}
                   value={this.state.title}
+
+
                 />
                 <input
                   type="hidden"
@@ -69,8 +70,9 @@ class NewPost extends React.Component {
                   type="textarea"
                   name="blogPostBody"
                   id="blogPostBody"
-                  onChange={this.handleChange}
-                  value={this.state.blogPostBody}
+
+                  onChange={this.props.handleChange}
+                   value={this.state.blogPostBody}
 
                 ></textarea>
 
