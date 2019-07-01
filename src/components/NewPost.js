@@ -50,6 +50,7 @@ class NewPost extends React.Component {
                   placeholder="Sample Title"
                   id="title"
                   onChange={this.handleChange}
+                  value={this.state.title}
                 />
                 <input
                   type="hidden"
@@ -69,6 +70,7 @@ class NewPost extends React.Component {
                   name="blogPostBody"
                   id="blogPostBody"
                   onChange={this.handleChange}
+                  value={this.state.blogPostBody}
 
                 ></textarea>
 
