@@ -6,7 +6,8 @@
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "sass": "^1.22.2"
   },
   "homepage": "https://matloc13.github.io/real_talk/",
   "scripts": {
