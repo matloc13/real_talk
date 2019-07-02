@@ -7,6 +7,9 @@ import NewPost from './components/NewPost.js'
 import ShowPost from './components/ShowPost.js'
 
 import UpdatePost from './components/UpdatePost.js'
+
+import Index from './components/Index.js'
+
 import { getCiphers } from 'tls';
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -75,7 +78,7 @@ class App extends Component{
   render() {
     return (
       <div className="App">
-        <h1>Real talk</h1>
+        <h1>Real Talk</h1>
 
         <NewPost
           baseURL={baseURL}
@@ -95,24 +98,13 @@ class App extends Component{
           handleChange={this.handleChange}
         />
 
-        {
-          this.state.blogPosts.map(post => {
-            return (
-              <div className="container" key={post._id}>
+        <Index
+          blogPosts={this.state.blogPosts}
+          deleteBlogPost={this.deleteBlogPost}
+          showPost={this.showPost}
+        />
 
-
-                <h2 onClick={()=> this.showPost(post)}>{post.title}</h2>
-                <span>{post.date}</span>
-                <h5>{post.author}</h5><span>Edit</span>
-                <h5 onClick={() => this.deleteBlogPost(post._id)}>X</h5>
-
-                <p>{post.blogPostBody}</p>
-              </div>
-            )
-          })
-        }
-
-          </div>
+      </div>
     );
   }
 }
