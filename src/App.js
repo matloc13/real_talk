@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {BrowserRouter as Router, Route } from "react-router-dom"
 import './App.css';
 
 import NewPost from './components/NewPost.js'
@@ -23,12 +23,21 @@ console.log('Current Base URL: ', baseURL)
 
 class App extends Component{
   state = {
+    users: [],
     blogPosts: [],
     blogPost: {}
   }
 
   componentDidMount () {
     this.getBlogPosts()
+  }
+
+  addUser = (user) => {
+    const copyUsers = [...this.state.users]
+    copyUsers.unshift(user)
+    this.setState({
+      users: copyUsers
+    })
   }
 
   getBlogPosts = () => {
