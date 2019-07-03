@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import NewPost from './components/NewPost.js'
+import MyEditor from './components/MyEditor.js'
+
+// import NewPost from './components/NewPost.js'
 
 import ShowPost from './components/ShowPost.js'
 
@@ -80,11 +82,12 @@ class App extends Component{
       <div className="App">
         <h1>Real Talk</h1>
 
-        <NewPost
+
+        <MyEditor
           baseURL={baseURL}
           addBlogPost={this.addBlogPost}
-          // handleChange={this.handleChange}
         />
+
         <ShowPost
           posts={this.state.blogPosts}
           post={this.state.blogPost}
