@@ -11,14 +11,13 @@ class MyEditor extends React.Component {
   state = {
     editorState: EditorState.createEmpty()
   }
-  saveContent = (content) => {
-    window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)))
+  saveContent = () => {
+    const contentState = this.state.editorState.getCurrentContent()
+    window.localStorage.setItem('content', JSON.stringify(convertToRaw(contentState)))
     console.log(window.localStorage)
   }
+
   onChange = (editorState) => {
-    const contentState = editorState.getCurrentContent()
-    console.log('content state: ', convertToRaw(contentState));
-    this.saveContent(contentState)
     this.setState({
       editorState
     })
@@ -43,6 +42,7 @@ class MyEditor extends React.Component {
           handleKeyCommand={this.handleKeyCommand}
           onChange={this.onChange}
         />
+        <button onClick={this.saveContent}>SAVE</button>
       </div>
     )
   }
