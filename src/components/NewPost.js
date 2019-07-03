@@ -1,5 +1,6 @@
 
 import React from 'react'
+import MyEditor from './MyEditor'
 
 class NewPost extends React.Component {
     state = {
@@ -41,43 +42,7 @@ class NewPost extends React.Component {
     render () {
         return (
             <div>
-              <form onSubmit={this.handleSubmit}>
-
-                <label htmlFor="title">Title</label>
-                <input
-                  type="text"
-                  name="title"
-                  placeholder="Sample Title"
-                  id="title"
-                  onChange={this.handleChange}
-                  // value={this.state.title}
-                />
-                <input
-                  type="hidden"
-                  name="author"
-                  id="author"
-                  value="usertest"
-                />
-                {/* <input
-                  type="date"
-                  name="date"
-                  id="date"
-                value={()=> date.now()}/> */}
-
-                <label htmlFor="blogPostBody">Body</label>
-                <textarea
-                  type="textarea"
-                  name="blogPostBody"
-                  id="blogPostBody"
-                  onChange={this.handleChange}
-                  // value={this.state.blogPostBody}
-
-                ></textarea>
-
-
-
-                    <input type="submit" value="Submit New Post"/>
-                </form>
+              <MyEditor />  
             </div>
         )
     }
