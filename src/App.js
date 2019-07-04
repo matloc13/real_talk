@@ -39,6 +39,7 @@ class App extends Component{
   getBlogPosts = () => {
     fetch(baseURL + '/blogposts')
     .then(data => {
+      console.log(data)
       return data.json()},
       error => console.error(error))
       .then(parsedData => this.setState({blogPosts: parsedData}),
