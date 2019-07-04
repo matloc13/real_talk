@@ -3,11 +3,12 @@ import {BrowserRouter as Router, Route } from "react-router-dom"
 import './App.css';
 
 import NewPost from './components/NewPost.js'
-
 import ShowPost from './components/ShowPost.js'
-
 import UpdatePost from './components/UpdatePost.js'
+import Login from './components/NewSession.js'
+import Register from './components/RegisterUser.js'
 import { getCiphers } from 'tls';
+import Header from './components/Header';
 let baseURL = process.env.REACT_APP_BASEURL
 
 
@@ -84,7 +85,16 @@ class App extends Component{
   render() {
     return (
       <div className="App">
-        <h1>Real talk</h1>
+        <Router>
+          <Header
+            baseURL={baseURL}
+            handleChange={this.handleChange}
+            currentUser={this.state.currentUser}
+          />
+
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+        </Router>
 
         <NewPost
           baseURL={baseURL}
