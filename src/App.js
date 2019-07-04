@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route } from "react-router-dom"
 import './App.css';
-
-import NewPost from './components/NewPost.js'
+import MyEditor from './components/MyEditor.js'
+// import NewPost from './components/NewPost.js'
 import ShowPost from './components/ShowPost.js'
 import UpdatePost from './components/UpdatePost.js'
 import Login from './components/NewSession.js'
 import Register from './components/RegisterUser.js'
+import Index from './components/Index.js'
 import { getCiphers } from 'tls';
 import Header from './components/Header';
 let baseURL = process.env.REACT_APP_BASEURL
@@ -44,6 +45,7 @@ class App extends Component{
   getBlogPosts = () => {
     fetch(baseURL + '/blogposts')
     .then(data => {
+      console.log(data)
       return data.json()},
       error => console.error(error))
       .then(parsedData => this.setState({blogPosts: parsedData}),
@@ -96,11 +98,12 @@ class App extends Component{
           <Route path="/register" exact component={Register} />
         </Router>
 
-        <NewPost
+
+        <MyEditor
           baseURL={baseURL}
           addBlogPost={this.addBlogPost}
-          handleChange={this.handleChange}
         />
+
         <ShowPost
           posts={this.state.blogPosts}
           post={this.state.blogPost}
@@ -114,24 +117,13 @@ class App extends Component{
           handleChange={this.handleChange}
         />
 
-        {
-          this.state.blogPosts.map(post => {
-            return (
-              <div className="container" key={post._id}>
+        <Index
+          blogPosts={this.state.blogPosts}
+          deleteBlogPost={this.deleteBlogPost}
+          showPost={this.showPost}
+        />
 
-
-                <h2 onClick={()=> this.showPost(post)}>{post.title}</h2>
-                <span>{post.date}</span>
-                <h5>{post.author}</h5><span>Edit</span>
-                <h5 onClick={() => this.deleteBlogPost(post._id)}>X</h5>
-
-                <p>{post.blogPostBody}</p>
-              </div>
-            )
-          })
-        }
-
-          </div>
+      </div>
     );
   }
 }
