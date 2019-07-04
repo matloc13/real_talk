@@ -9,9 +9,7 @@ import {
 
 class ShowEditor extends React.Component {
   state = {
-    editorState: EditorState.createWithContent(
-      convertFromRaw(JSON.parse(this.props.content))
-    )
+    editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.content)))
   }
   render () {
     return (
