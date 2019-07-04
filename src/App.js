@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
+import {Editor,
+        EditorState,
+        RichUtils,
+        convertToRaw,
+        convertFromRaw} from 'draft-js'
+
 import './App.css';
 
 import MyEditor from './components/MyEditor.js'
@@ -79,35 +87,40 @@ class App extends Component{
 
   render() {
     return (
-      <div className="App">
-        <h1>Real Talk</h1>
 
+      <Router>
+        <div className="App">
+          <h1>Real Talk</h1>
 
-        <MyEditor
-          baseURL={baseURL}
-          addBlogPost={this.addBlogPost}
-        />
+          <Route path="/newPost" component={MyEditor}></Route>
+          <MyEditor
+            baseURL={baseURL}
+            addBlogPost={this.addBlogPost}
+          />
 
-        <ShowPost
-          posts={this.state.blogPosts}
-          post={this.state.blogPost}
+          <ShowPost
+            posts={this.state.blogPosts}
+            post={this.state.blogPost}
 
-        />
+          />
 
-        <UpdatePost
-          post={this.state.blogPost}
-          baseURL={baseURL}
-          posts={this.state.blogPosts}
-          handleChange={this.handleChange}
-        />
+          <UpdatePost
+            post={this.state.blogPost}
+            baseURL={baseURL}
+            posts={this.state.blogPosts}
+            handleChange={this.handleChange}
+          />
+          {
+            this.state.blogPosts ?
+              <Index
+                blogPosts={this.state.blogPosts}
+                deleteBlogPost={this.deleteBlogPost}
+                showPost={this.showPost}
+              />:" no content"
+          }
 
-        <Index
-          blogPosts={this.state.blogPosts}
-          deleteBlogPost={this.deleteBlogPost}
-          showPost={this.showPost}
-        />
-
-      </div>
+        </div>
+      </Router>
     );
   }
 }

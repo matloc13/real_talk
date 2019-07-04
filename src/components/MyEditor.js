@@ -13,22 +13,27 @@ class MyEditor extends React.Component {
   }
   saveContent = () => {
     const contentState = this.state.editorState.getCurrentContent()
-    const blogPostBody = JSON.stringify(convertToRaw(contentState))
+    const blogPostBody = convertToRaw(contentState)
     fetch(this.props.baseURL + '/blogposts', {
         method: 'POST',
         body: JSON.stringify({
             // title: this.state.title,
-            blogPostBody: blogPostBody,
+            blogPostBody: blogPostBody
             // author: this.state.author
         }),
-        headers: {
+        headers: new Headers({
             'Content-Type': 'application/json'
-        }
+        })
     }).then (res => res.json())
     .then(resJson => {
+
+
+
+
       console.log(resJson)
       const blogPostBody = convertFromRaw(JSON.parse(resJson))
-      this.props.addBlogPost(blogPostBody)
+      this.props.addBlogPost(resJson)
+      // this.props.addBlogPost(blogPostBody)
       this.setState({
         editorState: this.state.editorState
       })
