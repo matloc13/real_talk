@@ -4,6 +4,8 @@ class Index extends Component {
   render(){
     return (
       <div className="container">
+
+
         {
           this.props.blogPosts.map(post => {
             return (
@@ -16,10 +18,11 @@ class Index extends Component {
 
                 <span onClick={() => this.props.showPost(post)}>Edit</span>
 
-                <p>{post.blogPostBody[0]}</p>
+                <p>{post.blogPostBody.toString()}</p>
               </div>
             )
           })
+
         }
       </div>
     )
