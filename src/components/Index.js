@@ -17,7 +17,7 @@ class Index extends Component {
 
                 <span onClick={() => this.props.showPost(post)}>Edit</span>
 
-                <p>{post.blogPostBody}</p>
+                <p>{post.blogPostBody.toString()}</p>
               </div>
             )
           })
