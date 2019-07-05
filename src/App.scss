@@ -22,6 +22,12 @@
   }
 }
 
+.nav {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+
 form {
   box-sizing: border-box;
 
