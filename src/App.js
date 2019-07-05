@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -9,24 +8,24 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 //         convertToRaw,
 //         convertFromRaw} from 'draft-js'
 
-=======
-import {BrowserRouter as Router, Route } from "react-router-dom"
->>>>>>> 235afbe86cf32d2aee9af9353bf3b6906d4f9823
 import './App.css';
+
 import MyEditor from './components/MyEditor.js'
 // import NewPost from './components/NewPost.js'
-<<<<<<< HEAD
+
+import Header from './components/Header.js'
+
 import Nav from './components/Nav.js'
 
-=======
->>>>>>> 235afbe86cf32d2aee9af9353bf3b6906d4f9823
 import ShowPost from './components/ShowPost.js'
+
 import UpdatePost from './components/UpdatePost.js'
-import Login from './components/NewSession.js'
-import Register from './components/RegisterUser.js'
+
+import RegisterUser from './components/RegisterUser.js'
+
 import Index from './components/Index.js'
+
 import { getCiphers } from 'tls';
-import Header from './components/Header';
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -49,14 +48,6 @@ class App extends Component{
     this.getBlogPosts()
   }
 
-  addUser = (user) => {
-    const copyUsers = [...this.state.users]
-    copyUsers.unshift(user)
-    this.setState({
-      users: copyUsers
-    })
-  }
-
   getBlogPosts = () => {
     fetch(baseURL + '/blogposts')
     .then(data => {
@@ -66,6 +57,14 @@ class App extends Component{
       .then(parsedData => this.setState({blogPosts: parsedData}),
       error => console.error(error))
   }
+
+  addUser = (user) => {
+   const copyUsers = [...this.state.users]
+   copyUsers.unshift(user)
+   this.setState({
+     users: copyUsers
+   })
+ }
 
   addBlogPost = (blogPost) => {
     const copyBlogPosts = [...this.state.blogPosts]
@@ -100,53 +99,25 @@ class App extends Component{
 
   render() {
     return (
-<<<<<<< HEAD
-=======
-      <div className="App">
-        <Router>
-          <Header
-            baseURL={baseURL}
-            handleChange={this.handleChange}
-            currentUser={this.state.currentUser}
-          />
-
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
-        </Router>
-
-
-        <MyEditor
-          baseURL={baseURL}
-          addBlogPost={this.addBlogPost}
-        />
-
-        <ShowPost
-          posts={this.state.blogPosts}
-          post={this.state.blogPost}
-
-        />
-
-        <UpdatePost
-          post={this.state.blogPost}
-          baseURL={baseURL}
-          posts={this.state.blogPosts}
-          handleChange={this.handleChange}
-        />
->>>>>>> 235afbe86cf32d2aee9af9353bf3b6906d4f9823
 
 <Router>
   <div className="App">
-    <h1>Real Talk</h1>
-    <Nav />
+    {/* <h1>Real Talk</h1> */}
+    <Header />
+    <Nav user={this.state.user}/>
     <Switch>
-      
+      <Route path="/register" render={(props) => <RegisterUser {...props} handleChange={this.handleChange} baseURL={baseURL} addUser={this.addUser}/>}/>
+
       {
         this.state.blogPosts ?
           <Route path="/index" render={(props) => <Index {...props} blogPosts={this.state.blogPosts}/>}/>: "no content"
       }
       <Route path="/newPost" render={(props) => <MyEditor {...props} baseURL={baseURL} addBlogPost={this.addBlogPost}/>}/>
+
       <Route path="/showPost" render={(props) => <ShowPost {...props} post={this.state.blogPost}/>}/>
+
       <Route path="/update" render={(props) => <UpdatePost {...props} post={this.state.blogPost} baseURL={baseURL} posts={this.state.blogPosts}/>}/>
+
     </Switch>
     {/* <MyEditor
       baseURL={baseURL}

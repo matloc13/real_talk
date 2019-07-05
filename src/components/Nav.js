@@ -6,7 +6,7 @@ class Nav extends React.Component {
   render() {
     return(
       <nav className="nav">
-        <Link>user</Link>
+        <a href="#">{this.props.user}</a>
         <Link to="/index">Index</Link>
         <Link to="/newPost">New</Link>
         <Link to="/showPost">Show Post</Link>
