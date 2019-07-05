@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ShowEditor from './ShowEditor'
 
 class Index extends Component {
   render(){
@@ -18,7 +19,10 @@ class Index extends Component {
 
                 <span onClick={() => this.props.showPost(post)}>Edit</span>
 
-                <p>{post.blogPostBody}</p>
+                <ShowEditor
+                  content={post.blogPostBody}
+                />
+
               </div>
             )
           })
