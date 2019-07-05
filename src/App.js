@@ -103,8 +103,11 @@ class App extends Component{
 <Router>
   <div className="App">
     {/* <h1>Real Talk</h1> */}
-    <Header />
-    <Nav user={this.state.user}/>
+    <a className="btn" href="/"><h1>Real Talk</h1></a>
+    <Header
+      // currentUser={this.state.users}
+    />
+    <Nav user={this.state.users.username}/>
     <Switch>
       <Route path="/register" render={(props) => <RegisterUser {...props} handleChange={this.handleChange} baseURL={baseURL} addUser={this.addUser}/>}/>
 
