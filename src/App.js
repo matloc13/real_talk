@@ -108,7 +108,7 @@ class App extends Component{
 
       {
         this.state.blogPosts ?
-          <Route path="/index" render={(props) => <Index {...props} blogPosts={this.state.blogPosts}/>}/>: "no content"
+          <Route path="/index" render={(props) => <Index {...props} blogPosts={this.state.blogPosts} showPost={this.showPost}/>}/>: "no content"
       }
       <Route path="/newPost" render={(props) => <MyEditor {...props} baseURL={baseURL} addBlogPost={this.addBlogPost}/>}/>
 

@@ -13,9 +13,10 @@ class ShowEditor extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div className="showDiv">
         <Editor
           editorState={this.state.editorState}
+          readOnly={true}
         />
       </div>
     )

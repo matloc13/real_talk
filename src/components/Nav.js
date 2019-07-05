@@ -19,7 +19,7 @@ class InfoNav extends React.Component {
   render() {
     return(
       <nav className="navbar">
-        <NavbarToggler onClick={this.toggle} />
+        
         <span>{this.props.user}</span>
         <Link to="/index">Index</Link>
         <Link to="/newPost">New</Link>
