@@ -1,11 +1,25 @@
 import React from 'react'
 
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
+
 import { Link } from 'react-router-dom'
 
-class Nav extends React.Component {
+class InfoNav extends React.Component {
   render() {
     return(
       <nav className="navbar">
+        <NavbarToggler onClick={this.toggle} />
         <span>{this.props.user}</span>
         <Link to="/index">Index</Link>
         <Link to="/newPost">New</Link>
@@ -15,4 +29,4 @@ class Nav extends React.Component {
     )
   }
 }
-export default Nav
+export default InfoNav
