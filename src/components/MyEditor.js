@@ -13,7 +13,9 @@ class MyEditor extends React.Component {
   }
   saveContent = () => {
     const contentState = this.state.editorState.getCurrentContent()
-    const blogPostBody = convertToRaw(contentState)
+    console.log("Content State: ", contentState)
+    const blogPostBody = JSON.stringify(convertToRaw(contentState))
+    console.log("Converted to Raw: ", blogPostBody)
     fetch(this.props.baseURL + '/blogposts', {
         method: 'POST',
         body: JSON.stringify({
@@ -24,8 +26,8 @@ class MyEditor extends React.Component {
         }
     }).then(res => res.json())
     .then(resJson => {
+      console.log("resJson: ", resJson)
       this.props.addBlogPost(resJson)
-      // const blogPostBody = convertFromRaw(resJson)
     }).catch (error => console.error({'Error': error}))
   }
 

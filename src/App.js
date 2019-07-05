@@ -46,7 +46,9 @@ class App extends Component{
       console.log(data)
       return data.json()},
       error => console.error(error))
-      .then(parsedData => this.setState({blogPosts: parsedData}),
+      .then(parsedData => this.setState({
+        blogPosts: parsedData
+      }),
       error => console.error(error))
   }
 
