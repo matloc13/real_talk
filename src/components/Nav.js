@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom'
 class InfoNav extends React.Component {
   render() {
     return(
-      <nav className="navbar">
+      <nav className="second navbar">
 
         <span>{this.props.user}</span>
         <Link to="/index">Index</Link>
