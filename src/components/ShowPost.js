@@ -3,9 +3,9 @@ import {
   Editor,
   EditorState,
   convertFromRaw,
-  convertToRaw
+  // convertToRaw
 } from 'draft-js'
-import ShowEditor from './ShowEditor.js'
+// import ShowEditor from './ShowEditor.js'
 
 class ShowPost extends Component {
 
