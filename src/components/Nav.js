@@ -24,8 +24,7 @@ class InfoNav extends React.Component {
         <Link to="/index">Index</Link>
         <Link to="/newPost">New</Link>
         <Link to="/showPost">Show Post</Link>
-        <Link to="/update">Update</Link>
-
+        
       </nav>
     )
   }
