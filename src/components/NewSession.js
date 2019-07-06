@@ -11,7 +11,7 @@ class NewSession extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(this.props.baseURL + '/blogposts', {
+        fetch(this.props.baseURL + '/sessions', {
             method: 'POST',
             body: JSON.stringify({
                 username: this.state.username,

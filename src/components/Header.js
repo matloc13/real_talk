@@ -34,14 +34,13 @@ class Header extends Component {
               <nav className="navbar">
                 <a className="btn" href="/"><h1>Real Talk</h1></a>
                 <Router>
-                    <Route path="/login" render={(props) => <Login {...props} baseURL={this.props.baseURL} handleChange={this.props.handleChange}/>}/>
 
                     <Link to="/login">Login</Link>
+                    <Route path="/login" render={(props) => <Login {...props} baseURL={this.props.baseURL} handleChange={this.props.handleChange}/>}/>
 
-                    <Route path="/register" render={(props) => <RegisterUser {...props} handleChange={this.props.handleChange} baseURL={this.props.baseURL} addUser={this.props.addUser}/>}/>
 
                     <Link to="/register">Register</Link>
-
+                    <Route path="/register" render={(props) => <RegisterUser {...props} handleChange={this.props.handleChange} baseURL={this.props.baseURL} addUser={this.props.addUser} name={this.props.name} username={this.props.username} password={this.props.password}/>}/>
 
                 </Router>
               </nav>

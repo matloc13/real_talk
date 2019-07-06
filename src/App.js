@@ -38,6 +38,11 @@ console.log('Current Base URL: ', baseURL)
 class App extends Component{
   state = {
     users: [],
+    user: {
+      name: '',
+      username: '',
+      password: ''
+    },
     blogPosts: [],
     blogPost: {}
   }
@@ -106,6 +111,9 @@ class App extends Component{
       baseURL={baseURL}
       handleChange = {this.handleChange}
       addUser = {this.addUser}
+      name = {this.state.name}
+      username = {this.state.username}
+      password = {this.state.password}
       // currentUser={this.state.users}
     />
     <Nav user={this.state.users.username}/>
