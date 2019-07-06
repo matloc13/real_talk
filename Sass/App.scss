@@ -21,10 +21,19 @@
 //   }
 // }
 
-.nav {
+.navbar {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
+  background-color: #663255;
+}
+
+.second {
+  background-color: #3b6632;
+}
+
+h1 {
+  color: white;
 }
 
 form {
@@ -37,15 +46,20 @@ form {
   input {
     display: block;
   }
+}
 
-  textarea {
-    width: 30%;
-    height: 30%;
-    resize: none;
+.textEditorWrapper {
+  margin: 0 auto;
+  width: 90vw;
+  height: 78vh;
+
+  .textEditor {
+    height: 500px;
+    border: 1px solid #3b6632;
   }
 }
 
-.indexPage {
+.indexItem {
   h2 {
     margin: 0;
   }
@@ -55,10 +69,10 @@ form {
   }
 
   p {
-    border: 1px solid blue;
+    border: 1px solid #3b6632;
   }
 }
 
 div {
-  border: 1px solid green;
+  border: 1px solid #3b6632;
 }

@@ -2,10 +2,19 @@
   color: #61dafb;
 }
 
-.nav {
+.navbar {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
+  background-color: #663255;
+}
+
+.second {
+  background-color: #3b6632;
+}
+
+h1 {
+  color: white;
 }
 
 form {
@@ -17,24 +26,29 @@ form label {
 form input {
   display: block;
 }
-form textarea {
-  width: 30%;
-  height: 30%;
-  resize: none;
+
+.textEditorWrapper {
+  margin: 0 auto;
+  width: 90vw;
+  height: 78vh;
+}
+.textEditorWrapper .textEditor {
+  height: 500px;
+  border: 1px solid #3b6632;
 }
 
-.indexPage h2 {
+.indexItem h2 {
   margin: 0;
 }
-.indexPage span {
+.indexItem span {
   margin: 0 1%;
 }
-.indexPage p {
-  border: 1px solid blue;
+.indexItem p {
+  border: 1px solid #3b6632;
 }
 
 div {
-  border: 1px solid green;
+  border: 1px solid #3b6632;
 }
 
 /*# sourceMappingURL=App.css.map */

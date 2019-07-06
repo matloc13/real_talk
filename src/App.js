@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
-
+import { Button } from 'reactstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
-// import {Editor,
-//         EditorState,
-//         RichUtils,
-//         convertToRaw,
-//         convertFromRaw} from 'draft-js'
 
 import './App.css';
 
 import MyEditor from './components/MyEditor.js'
-// import NewPost from './components/NewPost.js'
 
 import Header from './components/Header.js'
 
-import Nav from './components/Nav.js'
+import InfoNav from './components/Nav.js'
 
 import ShowPost from './components/ShowPost.js'
+
+import ShowEditor from './components/ShowEditor.js'
 
 import UpdatePost from './components/UpdatePost.js'
 
@@ -35,7 +30,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 console.log('Current Base URL: ', baseURL)
-
 
 class App extends Component{
   state = {
@@ -90,7 +84,7 @@ class App extends Component{
         const index = this.state.blogPosts.findIndex(blogPost => blogPost._id === id)
         const copyBlogPosts = [...this.state.blogPosts]
         copyBlogPosts.splice(index, 1)
-        this.setState({blogPost: copyBlogPosts})
+        this.setState({blogPosts: copyBlogPosts})
     })
   }
 
@@ -107,21 +101,22 @@ class App extends Component{
 
   render() {
     return (
-
 <Router>
   <div className="App">
     {/* <h1>Real Talk</h1> */}
-    <a className="btn" href="/"><h1>Real Talk</h1></a>
+    {/* <a className="btn" href="/"><h1>Real Talk</h1></a> */}
     <Header
       // currentUser={this.state.users}
     />
-    <Nav user={this.state.users.username}/>
+    <InfoNav user={this.state.users.username}/>
     <Switch>
-      <Route path="/register" render={(props) => <RegisterUser {...props} handleChange={this.handleChange} baseURL={baseURL} addUser={this.addUser}/>}/>
+      <Route
+        path="/register"
+        render={(props) => <RegisterUser {...props} handleChange={this.handleChange} baseURL={baseURL} addUser={this.addUser}/>}/>
 
       {
         this.state.blogPosts ?
-          <Route path="/index" render={(props) => <Index {...props} blogPosts={this.state.blogPosts} showPost={this.showPost}/>}/>: "no content"
+          <Route path="/index" render={(props) => <Index {...props} blogPosts={this.state.blogPosts} showPost={this.showPost} deleteBlogPost={this.deleteBlogPost}/>}/>: "no content"
       }
       <Route path="/newPost" render={(props) => <MyEditor {...props} baseURL={baseURL} addBlogPost={this.addBlogPost}/>}/>
 
