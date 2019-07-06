@@ -16,8 +16,6 @@ import ShowEditor from './components/ShowEditor.js'
 
 import UpdatePost from './components/UpdatePost.js'
 
-import RegisterUser from './components/RegisterUser.js'
-
 import Index from './components/Index.js'
 
 import { getCiphers } from 'tls';
@@ -34,6 +32,11 @@ console.log('Current Base URL: ', baseURL)
 class App extends Component{
   state = {
     users: [],
+    user: {
+      name: '',
+      username: '',
+      password: ''
+    },
     blogPosts: [],
     blogPost: {},
     content: ''
@@ -52,6 +55,16 @@ class App extends Component{
       .then(parsedData => this.setState({
         blogPosts: parsedData
       }),
+      error => console.error(error))
+  }
+
+  getUser = (desiredUser) => {
+    fetch(baseURL + '/users/' + desiredUser)
+    .then(data => {
+      console.log(data)
+      return data.json()},
+      error => console.error(error))
+      .then(parsedData => this.setState({user: parsedData}),
       error => console.error(error))
   }
 
@@ -106,13 +119,15 @@ class App extends Component{
     {/* <h1>Real Talk</h1> */}
     {/* <a className="btn" href="/"><h1>Real Talk</h1></a> */}
     <Header
+      baseURL={baseURL}
+      handleChange = {this.handleChange}
+      addUser = {this.addUser}
+      user = {this.state.user}
       // currentUser={this.state.users}
     />
     <InfoNav user={this.state.users.username}/>
     <Switch>
-      <Route
-        path="/register"
-        render={(props) => <RegisterUser {...props} handleChange={this.handleChange} baseURL={baseURL} addUser={this.addUser}/>}/>
+
 
       {
         this.state.blogPosts ?
