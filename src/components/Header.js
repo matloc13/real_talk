@@ -43,7 +43,7 @@ class Header extends Component {
               this.props.user ?
                 <nav className="navbar">
 
-                  <a className="btn" href="/"><h1>Real Talk</h1></a>
+                  <a className="btn" href="/real_talk/"><h1>Real Talk</h1></a>
                   <h4 className="mr-n5">{this.props.user.username}</h4>
                   <form onSubmit={this.handleSubmit}>
                     <input className="btn" type="submit" value="Logout" />
@@ -51,7 +51,7 @@ class Header extends Component {
                 </nav>
               :
               <nav className="navbar">
-                <a className="btn" href="/"><h1>Real Talk</h1></a>
+                <a className="btn" href="/real_talk/"><h1>Real Talk</h1></a>
                 <Router>
                   <Route path="/login" render={(props) => <Login {...props} baseURL={this.props.baseURL} handleChange={this.props.handleChange}/>}/>
 
@@ -65,7 +65,7 @@ class Header extends Component {
 
                 </Router>
               </nav>
-              
+
             }
               </header>
 
