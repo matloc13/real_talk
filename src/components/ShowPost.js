@@ -12,12 +12,18 @@ class ShowPost extends Component {
 // state = {
 //   editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.post.blogPostBody)))
 // }
-componentDidMount() {
-  this.findPost
-}
-findPost = () => {
-  
-}
+// componentDidMount() {
+//   this.findPost(this.props.post)
+// }
+// findPost = (post) => {
+//   const copyBlogPosts = [...this.props.posts]
+//   const findIndex = this.props.posts.findIndex(blogpost => blogpost._id === post._id)
+//
+//   copyBlogPosts[findIndex].blogPostBody
+//   this.setState({
+//     thispost:
+//   })
+// }
 
   render() {
     return (

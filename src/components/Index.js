@@ -4,13 +4,10 @@ import { Link } from 'react-router-dom'
 
 import ShowEditor from './ShowEditor.js'
 
-
-
 class Index extends Component {
   render(){
     return (
       <div className="container">
-
 
         {
           this.props.blogPosts.map(post => {
@@ -21,12 +18,15 @@ class Index extends Component {
 
                 <span onClick={() => this.props.deleteBlogPost(post._id)}>X</span>
 
-
                 <Link
                   to="/update"
                   onClick={()=>this.props.showPost(post)}
-                >Edit</Link>
+                >Edit </Link>
 
+                <Link
+                  to="/showPost"
+                  onClick={() => this.props.showPost(post)}
+                >All</Link>
 
                 <ShowEditor
                   content={post.blogPostBody}
