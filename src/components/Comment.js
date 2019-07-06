@@ -24,6 +24,7 @@ class CommentEditor extends React.Component {
           editorState={this.state.editorState}
           onChange={this.onChange}
         />
+        <button>Post Comment</button>
       </div>
     )
   }
