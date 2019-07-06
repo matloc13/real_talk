@@ -7,7 +7,7 @@ import RegisterUser from './RegisterUser.js'
 class Header extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(this.props.baseURL + '/blogposts', {
+        fetch(this.props.baseURL+ '/blogposts', {
             method: 'DELETE'
         }).then(res => res.json())
         .then(resJson => {
@@ -19,10 +19,9 @@ class Header extends Component {
 
     render () {
         return (
-          <header>
-            {
-              this.props.currentUser ?
+                this.props.currentUser ?
                 <nav className="navbar">
+
                     <a className="btn" href="/"><h1>Real Talk</h1></a>
                     <h4 className="mr-n5">{this.props.currentUser.username}</h4>
                     <form onSubmit={this.handleSubmit}>
@@ -45,6 +44,7 @@ class Header extends Component {
               </nav>
             }
           </header>
+
         )
     }
 }

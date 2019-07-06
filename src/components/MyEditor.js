@@ -5,6 +5,9 @@ import {Editor,
         RichUtils,
         convertToRaw,
         convertFromRaw} from 'draft-js'
+
+import { Button } from 'reactstrap';
+
 // import './App.css'
 
 class MyEditor extends React.Component {
@@ -13,7 +16,9 @@ class MyEditor extends React.Component {
   }
   saveContent = () => {
     const contentState = this.state.editorState.getCurrentContent()
-    const blogPostBody = convertToRaw(contentState)
+    console.log("Content State: ", contentState)
+    const blogPostBody = JSON.stringify(convertToRaw(contentState))
+    console.log("Converted to Raw: ", blogPostBody)
     fetch(this.props.baseURL + '/blogposts', {
         method: 'POST',
         body: JSON.stringify({
@@ -24,8 +29,8 @@ class MyEditor extends React.Component {
         }
     }).then(res => res.json())
     .then(resJson => {
+      console.log("resJson: ", resJson)
       this.props.addBlogPost(resJson)
-      // const blogPostBody = convertFromRaw(resJson)
     }).catch (error => console.error({'Error': error}))
   }
 
@@ -42,19 +47,20 @@ class MyEditor extends React.Component {
     }
     return 'not-handled'
   }
-  _onBoldClick = () => {
-    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'))
+  onBoldClick = () => {
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState,'BOLD'))
   }
   render () {
     return (
-      <div>
-        <button onClick={this._onBoldClick}>Bold</button>
+      <div className="textEditorWrapper">
+        <button onClick={this.onBoldClick}>Bold</button>
         <Editor
+          className="textEditor"
           editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}
           onChange={this.onChange}
         />
-        <button onClick={this.saveContent}>SAVE</button>
+        <button onClick={this.saveContent} color="primary" size="sm">SAVE</button>
       </div>
     )
   }

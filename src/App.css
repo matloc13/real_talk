@@ -1,11 +1,25 @@
+.App {
+  background-color: ghostwhite;
+  height: 100vh;
+}
+
 .App-link {
   color: #61dafb;
 }
 
-.nav {
+.navbar {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
+  background-color: ghostwhite;
+}
+
+.second {
+  background-color: #3b6632;
+}
+
+h1 {
+  color: #663255;
 }
 
 form {
@@ -17,24 +31,33 @@ form label {
 form input {
   display: block;
 }
-form textarea {
-  width: 30%;
-  height: 30%;
-  resize: none;
+
+.hidden {
+  display: none;
 }
 
-.indexPage h2 {
+.textEditorWrapper {
+  margin: 0 auto;
+  width: 90vw;
+  height: 78vh;
+  border: 1px solid #3b6632;
+}
+.textEditorWrapper .textEditor {
+  height: 500px;
+  border: 1px solid #3b6632;
+}
+
+.indexItem {
+  border: 1px solid #3b6632;
+}
+.indexItem h2 {
   margin: 0;
 }
-.indexPage span {
+.indexItem span {
   margin: 0 1%;
 }
-.indexPage p {
-  border: 1px solid blue;
-}
-
-div {
-  border: 1px solid green;
+.indexItem p {
+  border: 1px solid #3b6632;
 }
 
 /*# sourceMappingURL=App.css.map */

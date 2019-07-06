@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
-
+import { Button } from 'reactstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
-// import {Editor,
-//         EditorState,
-//         RichUtils,
-//         convertToRaw,
-//         convertFromRaw} from 'draft-js'
 
 import './App.css';
 
 import MyEditor from './components/MyEditor.js'
-// import NewPost from './components/NewPost.js'
 
 import Header from './components/Header.js'
 
-import Nav from './components/Nav.js'
+import InfoNav from './components/Nav.js'
 
 import ShowPost from './components/ShowPost.js'
+
+import ShowEditor from './components/ShowEditor.js'
 
 import UpdatePost from './components/UpdatePost.js'
 
@@ -29,11 +24,10 @@ let baseURL = process.env.REACT_APP_BASEURL
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3003'
 } else {
-  baseURL = 'https://realtalkblog.herokuapp.com/'
+  baseURL = 'https://realtalkblog.herokuapp.com'
 }
 
 console.log('Current Base URL: ', baseURL)
-
 
 class App extends Component{
   state = {
@@ -44,7 +38,8 @@ class App extends Component{
       password: ''
     },
     blogPosts: [],
-    blogPost: {}
+    blogPost: {},
+    content: ''
   }
 
   componentDidMount () {
@@ -57,7 +52,9 @@ class App extends Component{
       console.log(data)
       return data.json()},
       error => console.error(error))
-      .then(parsedData => this.setState({blogPosts: parsedData}),
+      .then(parsedData => this.setState({
+        blogPosts: parsedData
+      }),
       error => console.error(error))
   }
 
@@ -90,19 +87,23 @@ class App extends Component{
         const index = this.state.blogPosts.findIndex(blogPost => blogPost._id === id)
         const copyBlogPosts = [...this.state.blogPosts]
         copyBlogPosts.splice(index, 1)
-        this.setState({blogPost: copyBlogPosts})
+        this.setState({blogPosts: copyBlogPosts})
     })
   }
 
-  showPost = (blogPost) => {
-    this.setState({
-      blogPost: blogPost
-    })
-  }
+  //// May need to simply remove this.
+    showPost = (post) => {
+      const index = this.state.blogPosts.findIndex(blogPosts => blogPosts._id === post._id)
+      const content = this.state.blogPosts[index].blogPostBody
+      this.setState({
+        blogPost: post,
+        content: content
+      })
+    }
+
 
   render() {
     return (
-
 <Router>
   <div className="App">
     {/* <h1>Real Talk</h1> */}
@@ -116,18 +117,25 @@ class App extends Component{
       password = {this.state.password}
       // currentUser={this.state.users}
     />
-    <Nav user={this.state.users.username}/>
+    <InfoNav user={this.state.users.username}/>
     <Switch>
+
 
       {
         this.state.blogPosts ?
-          <Route path="/index" render={(props) => <Index {...props} blogPosts={this.state.blogPosts}/>}/>: "no content"
+          <Route path="/index" render={(props) => <Index {...props} blogPosts={this.state.blogPosts} showPost={this.showPost} deleteBlogPost={this.deleteBlogPost}/>}/>: "no content"
       }
       <Route path="/newPost" render={(props) => <MyEditor {...props} baseURL={baseURL} addBlogPost={this.addBlogPost}/>}/>
 
-      <Route path="/showPost" render={(props) => <ShowPost {...props} post={this.state.blogPost}/>}/>
+      <Route path="/showPost" render={(props) => <ShowPost {...props} post={this.state.blogPost} posts={this.state.blogPosts} content={this.state.content}/>}/>
 
-      <Route path="/update" render={(props) => <UpdatePost {...props} post={this.state.blogPost} baseURL={baseURL} posts={this.state.blogPosts}/>}/>
+      <Route path="/update"
+        render={(props) => <UpdatePost {...props} post={this.state.blogPost}
+        baseURL={baseURL}
+        posts={this.state.blogPosts}
+        content={this.state.content}
+        addBlogPost={this.addBlogPost}
+        />}/>
 
     </Switch>
     {/* <MyEditor
