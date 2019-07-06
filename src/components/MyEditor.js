@@ -5,6 +5,9 @@ import {Editor,
         RichUtils,
         convertToRaw,
         convertFromRaw} from 'draft-js'
+
+import { Button } from 'reactstrap';
+
 // import './App.css'
 
 class MyEditor extends React.Component {
@@ -49,14 +52,15 @@ class MyEditor extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div className="textEditorWrapper">
         <button onClick={this._onBoldClick}>Bold</button>
         <Editor
+          className="textEditor"
           editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}
           onChange={this.onChange}
         />
-        <button onClick={this.saveContent}>SAVE</button>
+        <button onClick={this.saveContent} color="primary" size="sm">SAVE</button>
       </div>
     )
   }
