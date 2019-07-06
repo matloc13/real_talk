@@ -18,29 +18,30 @@ class UpdatePost extends React.Component {
     })
   }
 
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     fetch(this.props.baseURL + '/blogposts/' + this.props.post._id, {
-    //         method: 'PUT',
-    //         body: JSON.stringify({
-    //             title: this.state.title,
-    //             blogPostBody: this.state.blogPostBody
-    //         }),
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }).then (res => res.json())
-    //     .then(resJson => {
-    //       const copyBlogPosts = [...this.props.posts]
-    //       const findIndex = this.props.posts.findIndex(post => post._id === resJson._id)
-    //       copyBlogPosts[findIndex].title = resJson.title
-    //       copyBlogPosts[findIndex].blogPostBody = resJson.blogPostBody
-    //         this.props.addBlogPost(resJson)
-    //         this.setState({
-    //             blogPosts: copyBlogPosts
-    //         })
-    //     }).catch (error => console.error({'Error': error}))
-    // }
+  saveUpdatedContent = () => {
+    const contentState = this.state.editorState.getCurrentContent()
+    console.log("Content State: ", contentState)
+    const blogPostBody = JSON.stringify(convertToRaw(contentState))
+    console.log("Converted to Raw: ", blogPostBody)
+    fetch(this.props.baseURL + '/blogposts/' + this.props.post._id, {
+        method: 'PUT',
+        body: JSON.stringify({
+          blogPostBody
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then (res => res.json())
+    .then(resJson => {
+      const copyBlogPosts = [...this.props.posts]
+      const findIndex = this.props.posts.findIndex(post => post._id === resJson._id)
+      copyBlogPosts[findIndex].title = resJson.title
+      copyBlogPosts[findIndex].blogPostBody = resJson.blogPostBody
+        this.setState({
+            blogPosts: copyBlogPosts
+        })
+    }).catch (error => console.error({'Error': error}))
+  }
 
     render () {
         return (
@@ -50,7 +51,7 @@ class UpdatePost extends React.Component {
                 editorState={this.state.editorState}
                 onChange={this.onChange}
               />
-              <button onClick={this.saveContent}>SAVE</button>
+              <button onClick={this.saveUpdatedContent}>SAVE</button>
 
             </div>
         )
