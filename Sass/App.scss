@@ -48,10 +48,15 @@ form {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 .textEditorWrapper {
   margin: 0 auto;
   width: 90vw;
   height: 78vh;
+  border: 1px solid #3b6632;
 
   .textEditor {
     height: 500px;
@@ -60,6 +65,8 @@ form {
 }
 
 .indexItem {
+  border: 1px solid #3b6632;
+
   h2 {
     margin: 0;
   }
@@ -72,7 +79,6 @@ form {
     border: 1px solid #3b6632;
   }
 }
-
-div {
-  border: 1px solid #3b6632;
-}
+// div {
+//   border: 1px solid #3b6632;
+// }
