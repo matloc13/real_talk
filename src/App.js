@@ -58,6 +58,16 @@ class App extends Component{
       error => console.error(error))
   }
 
+  getUser = (desiredUser) => {
+    fetch(baseURL + '/users/' + desiredUser)
+    .then(data => {
+      console.log(data)
+      return data.json()},
+      error => console.error(error))
+      .then(parsedData => this.setState({user: parsedData}),
+      error => console.error(error))
+  }
+
   addUser = (user) => {
    const copyUsers = [...this.state.users]
    copyUsers.unshift(user)
@@ -112,9 +122,7 @@ class App extends Component{
       baseURL={baseURL}
       handleChange = {this.handleChange}
       addUser = {this.addUser}
-      name = {this.state.name}
-      username = {this.state.username}
-      password = {this.state.password}
+      user = {this.state.user}
       // currentUser={this.state.users}
     />
     <InfoNav user={this.state.users.username}/>

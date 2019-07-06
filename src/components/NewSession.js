@@ -5,9 +5,23 @@ import React, {Component} from 'react'
 class NewSession extends Component {
 
     state = {
+        currentUser: '',
         username: '',
-        password: ''
+        password: '',
+        redirect: false
     }
+
+    // setRedirect = () => {
+    //     this.setState({
+    //         redirect: true
+    //     })
+    // }
+
+    // renderRedirect = () => {
+    //     if (this.state.redirect) {
+    //         return <Redirect to='/' />
+    //     }
+    // }
 
 
     handleSubmit = (event) => {
@@ -24,11 +38,17 @@ class NewSession extends Component {
         }).then(res => res.json())
         .then(resJson => {
             this.setState({
-                username: '',
-                password: ''
+                currentUser: resJson.currentUser,
+                username: resJson.username,
+                password: resJson.password
             })
-        }).catch(error => console.error({'Error': error}))
+            console.log(resJson.username)
+            console.log(resJson.currentUser)
+            // this.props.history.push('/')
+        })
+        // .catch(error => console.error({'Error': error}))
     }
+
     
     render () {
         return (
