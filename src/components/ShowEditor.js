@@ -9,13 +9,16 @@ import {
 
 class ShowEditor extends React.Component {
   state = {
-    editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.content)))
+    editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.content))
+      //I believe a "decorator" needs to be declared here to fix formattting
+    )
   }
   render () {
     return (
       <div>
         <Editor
           editorState={this.state.editorState}
+          readOnly={true}
         />
       </div>
     )

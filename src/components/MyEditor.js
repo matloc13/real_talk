@@ -45,7 +45,7 @@ class MyEditor extends React.Component {
     return 'not-handled'
   }
   _onBoldClick = () => {
-    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'))
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState,'BOLD'))
   }
   render () {
     return (
