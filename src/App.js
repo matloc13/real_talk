@@ -114,7 +114,7 @@ class App extends Component{
       }
       <Route path="/newPost" render={(props) => <MyEditor {...props} baseURL={baseURL} addBlogPost={this.addBlogPost}/>}/>
 
-      <Route path="/showPost" render={(props) => <ShowPost {...props} post={this.state.blogPost}/>}/>
+      <Route path="/showPost" render={(props) => <ShowPost {...props} post={this.state.blogPost} posts={this.state.blogPosts}/>}/>
 
       {/* <Route path ="/showPost" render={(props) => <ShowEditor {...props} content={this.state.blogPost.blogPostBody} />}/> */}
 

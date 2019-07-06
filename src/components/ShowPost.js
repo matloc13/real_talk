@@ -12,6 +12,12 @@ class ShowPost extends Component {
 // state = {
 //   editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.post.blogPostBody)))
 // }
+componentDidMount() {
+  this.findPost
+}
+findPost = () => {
+  
+}
 
   render() {
     return (
