@@ -20,7 +20,7 @@ class Header extends Component {
             {
               this.props.currentUser ?
                 <nav className="navbar">
-
+                  <a className="btn" href="/"><h1>Real Talk</h1></a>
                   <h4 className="mr-n5">{this.props.currentUser.username}</h4>
                   <form onSubmit={this.handleSubmit}>
                     <input className="btn" type="submit" value="Logout" />

@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import ShowEditor from './ShowEditor'
+
+
+
+import ShowEditor from './ShowEditor.js'
+
+
 
 class Index extends Component {
   render(){
@@ -10,19 +15,23 @@ class Index extends Component {
         {
           this.props.blogPosts.map(post => {
             return (
-              <div className="indexPage" key={post._id}>
-
-
+              <div className="indexItem" key={post._id}>
+                
                 <h2 onClick={()=> this.props.showPost(post)}>{post.title}</h2>
 
                 <span onClick={() => this.props.deleteBlogPost(post._id)}>X</span>
 
-                <span onClick={() => this.props.showPost(post)}>Edit</span>
+                <a onClick={() => this.props.showPost(post)}>Edit</a>
+                {/* <Link to={{
+                  pathname: '/showPost',
+                  state: {
+                    post: post
+                  }
+                }}>Edit</Link> */}
 
                 <ShowEditor
                   content={post.blogPostBody}
                 />
-
               </div>
             )
           })

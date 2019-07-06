@@ -6,6 +6,7 @@
   display: flex;
   flex-flow: row;
   justify-content: space-around;
+  background-color: blue;
 }
 
 form {
@@ -23,13 +24,13 @@ form textarea {
   resize: none;
 }
 
-.indexPage h2 {
+.indexItem h2 {
   margin: 0;
 }
-.indexPage span {
+.indexItem span {
   margin: 0 1%;
 }
-.indexPage p {
+.indexItem p {
   border: 1px solid blue;
 }
 

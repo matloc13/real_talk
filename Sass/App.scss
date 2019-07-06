@@ -25,6 +25,7 @@
   display: flex;
   flex-flow: row;
   justify-content: space-around;
+  background-color: blue;
 }
 
 form {
@@ -45,7 +46,7 @@ form {
   }
 }
 
-.indexPage {
+.indexItem {
   h2 {
     margin: 0;
   }
