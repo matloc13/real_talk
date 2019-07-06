@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ShowEditor from './ShowEditor'
+import { Link } from 'react-router-dom'
 
 class Index extends Component {
   render(){
@@ -17,7 +18,10 @@ class Index extends Component {
 
                 <span onClick={() => this.props.deleteBlogPost(post._id)}>X</span>
 
-                <span onClick={() => this.props.showPost(post)}>Edit</span>
+                <Link
+                  to="/update"
+                  onClick={()=>this.props.showPost(post)}
+                >Edit</Link>
 
                 <ShowEditor
                   content={post.blogPostBody}

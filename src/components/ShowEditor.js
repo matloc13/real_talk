@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import {
   Editor,
   EditorState,
+  RichUtils,
   convertFromRaw,
   convertToRaw
 } from 'draft-js'
