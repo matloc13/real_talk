@@ -21,13 +21,12 @@ class Index extends Component {
 
                 <span onClick={() => this.props.deleteBlogPost(post._id)}>X</span>
 
-                <a onClick={() => this.props.showPost(post)} href="/showPost">Edit</a>
-                {/* <Link to={{
-                  pathname: '/showPost',
-                  state: {
-                    post: post
-                  }
-                }}>Edit</Link> */}
+
+                <Link
+                  to="/update"
+                  onClick={()=>this.props.showPost(post)}
+                >Edit</Link>
+
 
                 <ShowEditor
                   content={post.blogPostBody}

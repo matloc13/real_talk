@@ -35,7 +35,8 @@ class App extends Component{
   state = {
     users: [],
     blogPosts: [],
-    blogPost: {}
+    blogPost: {},
+    content: ''
   }
 
   componentDidMount () {
@@ -87,11 +88,16 @@ class App extends Component{
     })
   }
 
-  showPost = (blogPost) => {
-    this.setState({
-      blogPost: blogPost
-    })
-  }
+  //// May need to simply remove this.
+    showPost = (post) => {
+      const index = this.state.blogPosts.findIndex(blogPosts => blogPosts._id === post._id)
+      const content = this.state.blogPosts[index].blogPostBody
+      this.setState({
+        blogPost: post,
+        content: content
+      })
+    }
+
 
   render() {
     return (
@@ -116,9 +122,8 @@ class App extends Component{
 
       <Route path="/showPost" render={(props) => <ShowPost {...props} post={this.state.blogPost}/>}/>
 
-      {/* <Route path ="/showPost" render={(props) => <ShowEditor {...props} content={this.state.blogPost.blogPostBody} />}/> */}
-
-      <Route path="/update" render={(props) => <UpdatePost {...props} post={this.state.blogPost} baseURL={baseURL} posts={this.state.blogPosts}/>}/>
+      <Route path="/update"
+        render={(props) => <UpdatePost {...props} post={this.state.blogPost} baseURL={baseURL} posts={this.state.blogPosts} content={this.state.content}/>}/>
 
     </Switch>
     {/* <MyEditor
