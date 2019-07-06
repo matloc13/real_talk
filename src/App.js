@@ -123,7 +123,12 @@ class App extends Component{
       <Route path="/showPost" render={(props) => <ShowPost {...props} post={this.state.blogPost} posts={this.state.blogPosts} content={this.state.content}/>}/>
 
       <Route path="/update"
-        render={(props) => <UpdatePost {...props} post={this.state.blogPost} baseURL={baseURL} posts={this.state.blogPosts} content={this.state.content}/>}/>
+        render={(props) => <UpdatePost {...props} post={this.state.blogPost}
+        baseURL={baseURL}
+        posts={this.state.blogPosts}
+        content={this.state.content}
+        addBlogPost={this.addBlogPost}
+        />}/>
 
     </Switch>
     {/* <MyEditor

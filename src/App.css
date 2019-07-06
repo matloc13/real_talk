@@ -1,3 +1,8 @@
+.App {
+  background-color: ghostwhite;
+  height: 100vh;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -6,7 +11,7 @@
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  background-color: #663255;
+  background-color: ghostwhite;
 }
 
 .second {
@@ -14,7 +19,7 @@
 }
 
 h1 {
-  color: white;
+  color: #663255;
 }
 
 form {
@@ -27,16 +32,24 @@ form input {
   display: block;
 }
 
+.hidden {
+  display: none;
+}
+
 .textEditorWrapper {
   margin: 0 auto;
   width: 90vw;
   height: 78vh;
+  border: 1px solid #3b6632;
 }
 .textEditorWrapper .textEditor {
   height: 500px;
   border: 1px solid #3b6632;
 }
 
+.indexItem {
+  border: 1px solid #3b6632;
+}
 .indexItem h2 {
   margin: 0;
 }
@@ -44,10 +57,6 @@ form input {
   margin: 0 1%;
 }
 .indexItem p {
-  border: 1px solid #3b6632;
-}
-
-div {
   border: 1px solid #3b6632;
 }
 
