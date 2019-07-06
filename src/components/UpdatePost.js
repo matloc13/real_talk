@@ -37,18 +37,15 @@ class UpdatePost extends React.Component {
       const findIndex = this.props.posts.findIndex(post => post._id === resJson._id)
       copyBlogPosts[findIndex].title = resJson.title
       copyBlogPosts[findIndex].blogPostBody = resJson.blogPostBody
-        this.props.addBlogPost(resJson)
         this.setState({
             blogPosts: copyBlogPosts
         })
     }).catch (error => console.error({'Error': error}))
   }
-  
+
     render () {
         return (
             <div className="UpdatePost">
-              {this.props.post._id}
-              {this.props.post.blogPostBody}
               <div className="hidden">{this.props.content}</div>
               <Editor
                 editorState={this.state.editorState}
