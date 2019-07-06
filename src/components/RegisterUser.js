@@ -11,7 +11,7 @@ class RegisterUser extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(this.props.baseURL + '/blogposts/', {
+        fetch(this.props.baseURL + '/blogposts', {
             method: 'POST',
             body: JSON.stringify({
                 name: this.state.name,
@@ -35,20 +35,20 @@ class RegisterUser extends Component {
     render () {
         return (
             <div className="container card">
-              <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="name" name="name">Name:</label>
-                  <input name="name" id="name" type="text" onChange={this.handleChange} />
-                </div>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="name" name="name">Name:</label>
+                        <input name="name" id="name" type="text" onChange={this.props.handleChange} />
+                    </div>
 
-                <div className="form-group">
-                  <label htmlFor="username" name="username">Username:</label>
-                  <input name="username" id="text" type="text" onChange={this.handleChange} />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="username" name="username">Username:</label>
+                        <input name="username" id="text" type="text" onChange={this.props.handleChange} />
+                    </div>
 
-                <div className="form-group">
-                  <label htmlFor="password" name="password">Password:</label>
-                  <input name="password" id="password" type="password" onChange={this.handleChange} />
+                    <div className="form-group">
+                        <label htmlFor="password" name="password">Password:</label>
+                        <input name="password" id="password" type="password" onChange={this.props.handleChange} />
                     </div>
 
 
