@@ -1,3 +1,8 @@
+.App {
+  background-color: ghostwhite;
+  height: 100vh;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -6,7 +11,7 @@
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  background-color: #663255;
+  background-color: ghostwhite;
 }
 
 .second {
@@ -14,7 +19,7 @@
 }
 
 h1 {
-  color: white;
+  color: #663255;
 }
 
 form {
