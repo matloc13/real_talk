@@ -29,7 +29,7 @@ let baseURL = process.env.REACT_APP_BASEURL
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3003'
 } else {
-  baseURL = 'https://realtalkblog.herokuapp.com/'
+  baseURL = 'https://realtalkblog.herokuapp.com'
 }
 
 console.log('Current Base URL: ', baseURL)
@@ -58,6 +58,16 @@ class App extends Component{
       return data.json()},
       error => console.error(error))
       .then(parsedData => this.setState({blogPosts: parsedData}),
+      error => console.error(error))
+  }
+
+  getUser = (desiredUser) => {
+    fetch(baseURL + '/users/' + desiredUser)
+    .then(data => {
+      console.log(data)
+      return data.json()},
+      error => console.error(error))
+      .then(parsedData => this.setState({user: parsedData}),
       error => console.error(error))
   }
 
@@ -111,9 +121,7 @@ class App extends Component{
       baseURL={baseURL}
       handleChange = {this.handleChange}
       addUser = {this.addUser}
-      name = {this.state.name}
-      username = {this.state.username}
-      password = {this.state.password}
+      user = {this.state.user}
       // currentUser={this.state.users}
     />
     <Nav user={this.state.users.username}/>
