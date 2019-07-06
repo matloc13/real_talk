@@ -1,12 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import {Editor,
         EditorState,
         RichUtils,
-        convertToRaw,
-        convertFromRaw} from 'draft-js'
+        convertToRaw} from 'draft-js'
 
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
 
 // import './App.css'
 
