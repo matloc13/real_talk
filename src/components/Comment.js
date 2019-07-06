@@ -22,6 +22,7 @@ class CommentEditor extends React.Component {
       <div className="showDiv">
         <Editor
           editorState={this.state.editorState}
+          onChange={this.onChange}
         />
       </div>
     )
