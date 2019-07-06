@@ -5,7 +5,6 @@ import Login from './NewSession.js'
 import RegisterUser from './RegisterUser.js'
 
 class Header extends Component {
-
     handleSubmit = (event) => {
         event.preventDefault();
         fetch(this.props.baseURL + '/blogposts', {
@@ -36,7 +35,7 @@ class Header extends Component {
                 <Router>
 
                     <Link to="/login">Login</Link>
-                    <Route path="/login" render={(props) => <Login {...props} baseURL={this.props.baseURL} handleChange={this.props.handleChange}/>}/>
+                    <Route path="/login" render={(props) => <Login {...props} baseURL={this.props.baseURL} handleChange={this.props.handleChange} username={this.props.username} password={this.props.password}/>}/>
 
 
                     <Link to="/register">Register</Link>

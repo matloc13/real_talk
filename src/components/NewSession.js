@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 
 
 class NewSession extends Component {
+
     state = {
         username: '',
         password: ''
@@ -14,8 +15,8 @@ class NewSession extends Component {
         fetch(this.props.baseURL + '/sessions', {
             method: 'POST',
             body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
+                username: this.props.username,
+                password: this.props.password
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +35,7 @@ class NewSession extends Component {
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username" name="username">Username:</label>
-                    <input name="username" id="text" type="text" onChange={this.props.handleChange} />
+                    <input name="username" id="username" type="text" onChange={this.props.handleChange} />
                 </div>
 
                 <div className="form-group">
