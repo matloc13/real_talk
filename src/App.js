@@ -26,7 +26,7 @@ let baseURL = process.env.REACT_APP_BASEURL
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3003'
 } else {
-  baseURL = 'https://realtalkblog.herokuapp.com/'
+  baseURL = 'https://realtalkblog.herokuapp.com'
 }
 
 console.log('Current Base URL: ', baseURL)
