@@ -18,13 +18,13 @@ import { Link } from 'react-router-dom'
 class InfoNav extends React.Component {
   render() {
     return(
-      <nav className="navbar">
+      <nav className="second navbar">
 
         <span>{this.props.user}</span>
         <Link to="/index">Index</Link>
         <Link to="/newPost">New</Link>
-        <Link to="/showPost">Show Post</Link>
-        <Link to="/update">Update</Link>
+        {/* <Link to="/showPost">Show Post</Link>
+        <Link to="/update">Update</Link> */}
 
       </nav>
     )
