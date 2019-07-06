@@ -45,9 +45,7 @@ class UpdatePost extends React.Component {
     render () {
         return (
             <div className="UpdatePost">
-
               <div className="hidden">{this.props.content}</div>
-
               <Editor
                 editorState={this.state.editorState}
                 onChange={this.onChange}
