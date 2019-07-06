@@ -16,12 +16,6 @@ class Index extends Component {
 
                 <h2 onClick={()=> this.props.showPost(post)}>{post.title}</h2>
 
-                <span onClick={() => this.props.deleteBlogPost(post._id)}>X</span>
-
-                <Link
-                  to="/update"
-                  onClick={()=>this.props.showPost(post)}
-                >Edit </Link>
 
                 <Link
                   to="/showPost"
@@ -31,6 +25,14 @@ class Index extends Component {
                 <ShowEditor
                   content={post.blogPostBody}
                 />
+
+                <span onClick={() => this.props.deleteBlogPost(post._id)}>X</span>
+
+                <Link
+                  to="/update"
+                  onClick={()=>this.props.showPost(post)}
+                  >Edit 
+                </Link>
               </div>
             )
           })
