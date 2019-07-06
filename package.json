@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "bootstrap-scss": "^4.3.1",
+    "draft-js": "^0.10.5",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "reactstrap": "^8.0.0",
+    "sass": "^1.22.2"
   },
   "homepage": "https://matloc13.github.io/real_talk/",
   "scripts": {
