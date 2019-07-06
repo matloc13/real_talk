@@ -26,7 +26,7 @@ class Header extends Component {
                 </nav>
                 :
                 <nav className="navbar">
-                    <a className="btn" href="/"><h1>Real Talk</h1></a>
+                  <a className="btn" href="/"><h1>Real Talk</h1></a>
                     <Link to="/login">Login</Link>
                     <Link to="/register">Register</Link>
                 </nav>
