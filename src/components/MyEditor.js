@@ -54,13 +54,14 @@ class MyEditor extends React.Component {
     return (
       <div className="textEditorWrapper">
         <button onClick={this.onBoldClick}>Bold</button>
+        <button onClick={this.saveContent} color="primary" size="sm">SAVE</button>
         <Editor
           className="textEditor"
           editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}
           onChange={this.onChange}
         />
-        <button onClick={this.saveContent} color="primary" size="sm">SAVE</button>
+
       </div>
     )
   }

@@ -1,63 +1,70 @@
-.App {
+body {
   background-color: ghostwhite;
-  height: 100vh;
-}
-
-.App-link {
-  color: #61dafb;
-}
+  height: 100%; }
 
 .navbar {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  background-color: ghostwhite;
-}
+  background-color: ghostwhite; }
 
 .second {
   background-color: #3b6632;
-}
+  color: ghostwhite;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  padding: 2%; }
+  .second a {
+    color: ghostwhite;
+    margin: 0 3%; }
 
 h1 {
-  color: #663255;
-}
+  color: #663255; }
 
 form {
-  box-sizing: border-box;
-}
-form label {
-  display: block;
-}
-form input {
-  display: block;
-}
+  box-sizing: border-box; }
+  form label {
+    display: block; }
+  form input {
+    display: block; }
 
 .hidden {
-  display: none;
-}
+  display: none; }
 
 .textEditorWrapper {
   margin: 0 auto;
   width: 90vw;
-  height: 78vh;
-  border: 1px solid #3b6632;
-}
-.textEditorWrapper .textEditor {
-  height: 500px;
-  border: 1px solid #3b6632;
-}
+  height: 78%;
+  border: 1px solid #3b6632; }
+  .textEditorWrapper .DraftEditor-root {
+    height: 500px;
+    background-color: white; }
+    .textEditorWrapper .DraftEditor-root .DraftEditor-editorContainer {
+      width: 100%;
+      height: 100%; }
+      .textEditorWrapper .DraftEditor-root .DraftEditor-editorContainer div {
+        width: 100%;
+        height: 100%; }
 
 .indexItem {
-  border: 1px solid #3b6632;
-}
-.indexItem h2 {
-  margin: 0;
-}
-.indexItem span {
-  margin: 0 1%;
-}
-.indexItem p {
-  border: 1px solid #3b6632;
-}
+  border: 5px solid #3b6632;
+  margin: 3px auto;
+  border-radius: 4%; }
+  .indexItem h2 {
+    margin: 0; }
+  .indexItem span {
+    margin: 0 1%; }
+  .indexItem p {
+    border: 1px solid #3b6632; }
+  .indexItem .indexBar {
+    display: grid;
+    grid-template-columns: 9fr 1fr 1fr 1fr;
+    grid-gap: 1%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+  .indexItem .DraftEditor-root {
+    width: 100%;
+    height: 100px;
+    background-color: white; }
 
 /*# sourceMappingURL=App.css.map */
