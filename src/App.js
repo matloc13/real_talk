@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import './App.css';
@@ -12,13 +12,13 @@ import InfoNav from './components/Nav.js'
 
 import ShowPost from './components/ShowPost.js'
 
-import ShowEditor from './components/ShowEditor.js'
+// import ShowEditor from './components/ShowEditor.js'
 
 import UpdatePost from './components/UpdatePost.js'
 
 import Index from './components/Index.js'
 
-import { getCiphers } from 'tls';
+// import { getCiphers } from 'tls';
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {

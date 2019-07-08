@@ -1,8 +1,8 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import {Editor,
         EditorState,
-        RichUtils,
+        // RichUtils,
         convertToRaw,
         convertFromRaw} from 'draft-js'
 

@@ -1,11 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import {
   Editor,
   EditorState,
-  RichUtils,
-  convertFromRaw,
-  convertToRaw
+  // RichUtils,
+  // convertFromRaw,
+  // convertToRaw
 } from 'draft-js'
 
 class CommentEditor extends React.Component {
@@ -24,6 +24,7 @@ class CommentEditor extends React.Component {
           editorState={this.state.editorState}
           onChange={this.onChange}
         />
+        <button>Post Comment</button>
       </div>
     )
   }
