@@ -18,6 +18,7 @@ class Index extends Component {
 
                 <div className="indexBar">
                   <span></span>
+                  <span>{post.createdAt.toString()}</span>
                   <Link
                     to="/showPost"
                     onClick={() => this.props.showPost(post)}
@@ -30,7 +31,7 @@ class Index extends Component {
                   >Edit
                   </Link>
 
-                  <span onClick={() => this.props.deleteBlogPost(post._id)}>X</span>
+                  <button onClick={() => this.props.deleteBlogPost(post._id)}>X</button>
 
                 </div>
 
