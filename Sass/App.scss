@@ -20,15 +20,16 @@ body {
 }
 
 .second {
-  background-color: #3b6632;
+  // background-color: #3b6632;
   color: ghostwhite;
   display: flex;
   flex-flow: row;
   justify-content: flex-end;
   padding: 2%;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .1);
 
   a {
-    color: ghostwhite;
+    color: #3b6632;
     margin: 0 3%;
   }
 }
@@ -74,6 +75,15 @@ form {
         height: 100%;
       }
     }
+  }
+
+  button {
+    background-color: inherit;
+    border: none;
+  }
+
+  button:hover {
+    border: 1px solid black;
   }
 }
 //draft editor styling index item

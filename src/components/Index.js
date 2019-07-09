@@ -21,7 +21,7 @@ class Index extends Component {
                   <Link
                     to="/showPost"
                     onClick={() => this.props.showPost(post)}
-                  >All
+                  >View
                   </Link>
 
                   <Link
