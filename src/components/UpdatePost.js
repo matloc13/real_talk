@@ -47,11 +47,12 @@ class UpdatePost extends React.Component {
         return (
             <div className="UpdatePost">
               <div className="hidden">{this.props.content}</div>
+              <button onClick={this.saveUpdatedContent}>SAVE</button>
               <Editor
                 editorState={this.state.editorState}
                 onChange={this.onChange}
               />
-              <button onClick={this.saveUpdatedContent}>SAVE</button>
+              {/* <button onClick={this.saveUpdatedContent}>SAVE</button> */}
 
             </div>
         )
