@@ -17,8 +17,8 @@ class Index extends Component {
                 <h2 onClick={()=> this.props.showPost(post)}>{post.title}</h2>
 
                 <div className="indexBar">
-                  <span></span>
-                  <span>{post.createdAt.toString()}</span>
+                  {/* <span></span> */}
+                  <span>{post.createdAt}</span>
                   <Link
                     to="/showPost"
                     onClick={() => this.props.showPost(post)}
