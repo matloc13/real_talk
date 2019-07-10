@@ -2,6 +2,18 @@ body {
   background-color: ghostwhite;
   height: 100%; }
 
+.hamburgerIcon {
+  display: inline-block;
+  cursor: pointer; }
+  .hamburgerIcon .bar1,
+  .hamburgerIcon .bar2,
+  .hamburgerIcon .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #663255;
+    margin: 6px 0;
+    transition: 0.4s; }
+
 .navbar {
   display: flex;
   flex-flow: row;
