@@ -20,7 +20,10 @@ class InfoNav extends React.Component {
     hamburgerIcon: true
   }
   hamNav = ()=> {
+    const hIcon = document.getElementById('hIcon')
+    hIcon.classList.toggle('change')
     this.setState({
+
       hamburgerIcon: !this.state.hamburgerIcon
     })
   }
@@ -30,8 +33,8 @@ class InfoNav extends React.Component {
   {
     this.state.hamburgerIcon ?
       <nav className="second navbar">
-        <span>{this.props.user}</span>
-        <div className="hamburgerIcon"
+        {/* <span>{this.props.user}</span> */}
+        <div id="hIcon" className="hamburgerIcon"
           onClick={this.hamNav}>
           <div className="bar1"></div>
           <div className="bar2"></div>
@@ -40,14 +43,15 @@ class InfoNav extends React.Component {
       </nav>
     :
     <nav className="second navbar">
-      <div className="hamburgerIcon"
+      <div id="hIcon" className="hamburgerIcon"
         onClick={this.hamNav}>
-        <div className="bar1"></div>
-        <div className="bar2"></div>
-        <div className="bar3"></div>
+        <div className="change bar1"></div>
+        <div className="change bar2"></div>
+        <div className="change bar3"></div>
       </div>
+      <div></div>
       <div>
-        <Link to="/index">Articles</Link> |
+        <Link to="/index">Articles</Link>
         <Link to="/newPost">New Article</Link>
       </div>
     </nav>
