@@ -1,12 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import {Editor,
         EditorState,
         RichUtils,
-        convertToRaw,
-        convertFromRaw} from 'draft-js'
+        convertToRaw} from 'draft-js'
 
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
 
 // import './App.css'
 
@@ -50,17 +49,26 @@ class MyEditor extends React.Component {
   onBoldClick = () => {
     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState,'BOLD'))
   }
+  onItalicClick = () => {
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState,'ITALIC'))
+  }
+  onUnderlineClick = () => {
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState,'UNDERLINE'))
+  }
   render () {
     return (
       <div className="textEditorWrapper">
-        <button onClick={this.onBoldClick}>Bold</button>
+        <button onClick={this.onBoldClick}><em>B</em></button>
+        <button onClick={this.onItalicClick}><em>I</em></button>
+        <button onClick={this.onUnderlineClick}><em>U</em></button>
+        <button onClick={this.saveContent} color="primary" size="sm">SAVE</button>
         <Editor
           className="textEditor"
           editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}
           onChange={this.onChange}
         />
-        <button onClick={this.saveContent} color="primary" size="sm">SAVE</button>
+
       </div>
     )
   }

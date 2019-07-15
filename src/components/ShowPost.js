@@ -3,9 +3,9 @@ import {
   Editor,
   EditorState,
   convertFromRaw,
-  convertToRaw
+  // convertToRaw
 } from 'draft-js'
-import ShowEditor from './ShowEditor.js'
+// import ShowEditor from './ShowEditor.js'
 
 class ShowPost extends Component {
 
@@ -29,6 +29,7 @@ state = {
     return (
       <div className="showPost">
         {/* <h2>{this.props.post.title}</h2> */}
+        <span>{this.props.post.createdAt}</span>
         {/* <p>{this.props.post.blogPostBody}</p> */}
         {/* {console.log(this.props.post.blogPostBody)} */}
         <div className="hidden">{this.props.content}</div>

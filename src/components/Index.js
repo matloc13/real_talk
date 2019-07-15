@@ -16,21 +16,32 @@ class Index extends Component {
 
                 <h2 onClick={()=> this.props.showPost(post)}>{post.title}</h2>
 
-                <span onClick={() => this.props.deleteBlogPost(post._id)}>X</span>
+                <div className="indexBar">
+                  {/* <span></span> */}
+                  <span>{post.createdAt}</span>
+                  <Link
+                    to="/showPost"
+                    onClick={() => this.props.showPost(post)}
+                  >View
+                  </Link>
 
-                <Link
-                  to="/update"
-                  onClick={()=>this.props.showPost(post)}
-                >Edit </Link>
+                  <Link
+                    to="/update"
+                    onClick={()=>this.props.showPost(post)}
+                  >Edit
+                  </Link>
 
-                <Link
-                  to="/showPost"
-                  onClick={() => this.props.showPost(post)}
-                >All</Link>
+                  <button onClick={() => this.props.deleteBlogPost(post._id)}>X</button>
+
+                </div>
 
                 <ShowEditor
                   content={post.blogPostBody}
                 />
+
+
+
+
               </div>
             )
           })

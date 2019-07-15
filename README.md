@@ -1,3 +1,6 @@
+View the app: [realTalk](https://matloc13.github.io/real_talk/)
+
+[Back-end repository](https://github.com/matloc13/directed-feedback-back)
 
 ![Create_view](/images/Create_view_wireframe.png)
 

@@ -37,11 +37,13 @@ class NewSession extends Component {
             }
         }).then(res => res.json())
         .then(resJson => {
+
             this.setState({
                 currentUser: resJson.currentUser,
                 username: resJson.username,
                 password: resJson.password
             })
+            this.props.getUser(this.state.currentUser)
             console.log(resJson.username)
             console.log(resJson.currentUser)
             // this.props.history.push('/')
@@ -49,7 +51,7 @@ class NewSession extends Component {
         // .catch(error => console.error({'Error': error}))
     }
 
-    
+
     render () {
         return (
             <form onSubmit={this.handleSubmit}>

@@ -1,63 +1,122 @@
-.App {
-  background-color: ghostwhite;
-  height: 100vh;
-}
+body {
+  background-color: #fbffff;
+  height: 100%; }
 
-.App-link {
-  color: #61dafb;
-}
+.viewerSize, .textEditorWrapper, .showPost, .UpdatePost {
+  margin: 3% auto;
+  width: 80vw;
+  height: 78%; }
+
+.bar, .hamburgerIcon .bar1, .hamburgerIcon .bar2, .hamburgerIcon .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #663255;
+  margin: 6px 0;
+  transition: 0.4s; }
+
+.hamburgerIcon {
+  display: inline-block;
+  cursor: pointer; }
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px); }
+.change .bar2 {
+  opacity: 0; }
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px); }
 
 .navbar {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  background-color: ghostwhite;
-}
+  background-color: #fbffff; }
 
 .second {
-  background-color: #3b6632;
-}
+  color: #fbffff;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  padding: 2%;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1); }
+  .second a {
+    color: #3b6632;
+    margin: 0 3%; }
 
 h1 {
-  color: #663255;
-}
+  color: #663255; }
 
 form {
-  box-sizing: border-box;
-}
-form label {
-  display: block;
-}
-form input {
-  display: block;
-}
+  box-sizing: border-box; }
+  form label {
+    display: block; }
+  form input {
+    display: block; }
 
 .hidden {
-  display: none;
-}
+  display: none; }
 
 .textEditorWrapper {
-  margin: 0 auto;
-  width: 90vw;
-  height: 78vh;
-  border: 1px solid #3b6632;
-}
-.textEditorWrapper .textEditor {
-  height: 500px;
-  border: 1px solid #3b6632;
-}
+  border: 1px solid #3b6632; }
+  .textEditorWrapper .DraftEditor-root {
+    height: 500px;
+    background-color: #fefdfb; }
+    .textEditorWrapper .DraftEditor-root .DraftEditor-editorContainer {
+      width: 100%;
+      height: 100%; }
+      .textEditorWrapper .DraftEditor-root .DraftEditor-editorContainer div {
+        width: 100%;
+        height: 100%; }
+  .textEditorWrapper button {
+    background-color: inherit;
+    border: none; }
+  .textEditorWrapper button:hover {
+    border: 1px solid black; }
 
 .indexItem {
-  border: 1px solid #3b6632;
-}
-.indexItem h2 {
-  margin: 0;
-}
-.indexItem span {
-  margin: 0 1%;
-}
-.indexItem p {
-  border: 1px solid #3b6632;
-}
+  border: 5px solid #3b6632;
+  margin: 3px auto;
+  border-radius: 4%; }
+  .indexItem h2 {
+    margin: 0; }
+  .indexItem span {
+    margin: 0 1%; }
+  .indexItem p {
+    border: 1px solid #3b6632; }
+  .indexItem .indexBar {
+    display: grid;
+    grid-template-columns: 9fr 1fr 1fr 1fr;
+    grid-gap: 1%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+    .indexItem .indexBar button {
+      background-color: inherit;
+      border: none;
+      color: #3b6632; }
+    .indexItem .indexBar a {
+      color: #3b6632; }
+  .indexItem .DraftEditor-root {
+    width: 100%;
+    height: 100px;
+    background-color: #fefdfb; }
+
+.showPost {
+  border: 1px solid #663255; }
+  .showPost .DraftEditor-root {
+    height: 500px; }
+    .showPost .DraftEditor-root .DraftEditor-editorContainer {
+      width: 100%;
+      height: 100%; }
+
+.UpdatePost {
+  border: 1px solid #663255; }
+  .UpdatePost .DraftEditor-root {
+    height: 500px;
+    background-color: #fefdfb; }
+    .UpdatePost .DraftEditor-root .DraftEditor-editorContainer {
+      width: 100%;
+      height: 100%; }
+  .UpdatePost button {
+    border: none;
+    background-color: inherit; }
 
 /*# sourceMappingURL=App.css.map */

@@ -1,41 +1,86 @@
-.App {
-  background-color: ghostwhite;
-  // text-align: center;
-  // width: 100%;
-  height: 100vh;
-}
-// .App-logo {
-//   animation: App-logo-spin infinite 20s linear;
-//   height: 40vmin;
-//   pointer-events: none;
-// }
+$rt-green: #3b6632;
+$rt-purple: #663255;
+$rt-white: lighten(azure, 2.1%); // $rt-white: ghostwhite;
+$rt-editor-white: lighten(linen, 5%);
+$editor-margin: 3% auto;
 
-.App-link {
-  color: #61dafb;
+body {
+  background-color: $rt-white;
+  height: 100%;
 }
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
+//viewerSize extender outter div of the textEditor
+
+.viewerSize {
+  margin: $editor-margin;
+  width: 80vw;
+  height: 78%;
+}
+// hamburgerIcon animation and style
+
+.bar {
+  width: 35px;
+  height: 5px;
+  background-color: $rt-purple;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.hamburgerIcon {
+  display: inline-block;
+  cursor: pointer;
+
+  .bar1 {
+    @extend .bar;
+  }
+
+  .bar2 {
+    @extend .bar;
+  }
+
+  .bar3 {
+    @extend .bar;
+  }
+}
+
+.change {
+  .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .bar2 {
+    opacity: 0;
+  }
+
+  .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+}
+//Navs
 
 .navbar {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  background-color: ghostwhite;
+  background-color: $rt-white;
 }
 
 .second {
-  background-color: #3b6632;
+  color: $rt-white;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  padding: 2%;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .1);
+
+  a {
+    color: $rt-green;
+    margin: 0 3%;
+  }
 }
 
 h1 {
-  color: #663255;
+  color: $rt-purple;
 }
 
 form {
@@ -53,21 +98,42 @@ form {
 .hidden {
   display: none;
 }
+//draft editor styling newpost
 
 .textEditorWrapper {
-  margin: 0 auto;
-  width: 90vw;
-  height: 78vh;
-  border: 1px solid #3b6632;
+  @extend .viewerSize;
+  border: 1px solid $rt-green;
 
-  .textEditor {
+  .DraftEditor-root {
     height: 500px;
-    border: 1px solid #3b6632;
+    background-color: $rt-editor-white;
+
+    .DraftEditor-editorContainer {
+      width: 100%;
+      height: 100%;
+
+      div {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  button {
+    background-color: inherit;
+    border: none;
+  }
+
+  button:hover {
+    border: 1px solid black;
   }
 }
+//draft editor styling index item
 
 .indexItem {
-  border: 1px solid #3b6632;
+  border: 5px solid $rt-green;
+  margin: 3px auto;
+  border-radius: 4%;
 
   h2 {
     margin: 0;
@@ -78,7 +144,66 @@ form {
   }
 
   p {
-    border: 1px solid #3b6632;
+    border: 1px solid $rt-green;
+  }
+
+  .indexBar {
+    display: grid;
+    grid-template-columns: 9fr 1fr 1fr 1fr;
+    grid-gap: 1%;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+
+    button {
+      background-color: inherit;
+      border: none;
+      color: $rt-green;
+    }
+
+    a {
+      color: $rt-green;
+    }
+  }
+
+  .DraftEditor-root {
+    width: 100%;
+    height: 100px;
+    background-color: $rt-editor-white;
+  }
+}
+// drastf teditor read only  styling showPost
+
+.showPost {
+  border: 1px solid $rt-purple;
+  @extend .viewerSize;
+
+  .DraftEditor-root {
+    height: 500px;
+
+    .DraftEditor-editorContainer {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+//draft editor styling update post
+
+.UpdatePost {
+  @extend .viewerSize;
+  border: 1px solid $rt-purple;
+
+  .DraftEditor-root {
+    height: 500px;
+    background-color: $rt-editor-white;
+
+    .DraftEditor-editorContainer {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
   }
 }
 // div {
