@@ -49,10 +49,18 @@ class MyEditor extends React.Component {
   onBoldClick = () => {
     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState,'BOLD'))
   }
+  onItalicClick = () => {
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState,'ITALIC'))
+  }
+  onUnderlineClick = () => {
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState,'UNDERLINE'))
+  }
   render () {
     return (
       <div className="textEditorWrapper">
-        <button onClick={this.onBoldClick}>Bold</button>
+        <button onClick={this.onBoldClick}><em>B</em></button>
+        <button onClick={this.onItalicClick}><em>I</em></button>
+        <button onClick={this.onUnderlineClick}><em>U</em></button>
         <button onClick={this.saveContent} color="primary" size="sm">SAVE</button>
         <Editor
           className="textEditor"
