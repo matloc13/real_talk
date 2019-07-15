@@ -1,6 +1,6 @@
 $rt-green: #3b6632;
 $rt-purple: #663255;
-$rt-white: lighten(azure, 2.5%); // $rt-white: ghostwhite;
+$rt-white: lighten(azure, 2.1%); // $rt-white: ghostwhite;
 $rt-editor-white: lighten(linen, 5%);
 $editor-margin: 3% auto;
 
@@ -8,13 +8,14 @@ body {
   background-color: $rt-white;
   height: 100%;
 }
-//viewerSize extender
+//viewerSize extender outter div of the textEditor
 
 .viewerSize {
   margin: $editor-margin;
   width: 80vw;
   height: 78%;
 }
+// hamburgerIcon animation and style
 
 .bar {
   width: 35px;
@@ -207,16 +208,4 @@ form {
 }
 // div {
 //   border: 1px solid #3b6632;
-// }
-/* Rotate first bar */
-// .change .bar1 {
-//   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-//   transform: rotate(-45deg) translate(-9px, 6px);
-// }
-/* Fade out the second bar */
-// .change
-// /* Rotate last bar */
-// .change .bar3 {
-//   -webkit-transform: rotate(45deg) translate(-8px, -8px);
-//   transform: rotate(45deg) translate(-8px, -8px);
 // }

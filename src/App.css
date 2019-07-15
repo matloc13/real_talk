@@ -1,5 +1,5 @@
 body {
-  background-color: #fdffff;
+  background-color: #fbffff;
   height: 100%; }
 
 .viewerSize, .textEditorWrapper, .showPost, .UpdatePost {
@@ -31,10 +31,10 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  background-color: #fdffff; }
+  background-color: #fbffff; }
 
 .second {
-  color: #fdffff;
+  color: #fbffff;
   display: grid;
   grid-template-columns: 1fr 3fr 2fr;
   padding: 2%;
@@ -118,8 +118,5 @@ form {
   .UpdatePost button {
     border: none;
     background-color: inherit; }
-
-/* Rotate first bar */
-/* Fade out the second bar */
 
 /*# sourceMappingURL=App.css.map */
