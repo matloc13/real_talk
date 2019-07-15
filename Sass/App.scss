@@ -1,6 +1,6 @@
 $rt-green: #3b6632;
 $rt-purple: #663255;
-$rt-white: ghostwhite;
+$rt-white: lighten(azure, 2.1%); // $rt-white: ghostwhite;
 $rt-editor-white: lighten(linen, 5%);
 $editor-margin: 3% auto;
 
@@ -8,19 +8,53 @@ body {
   background-color: $rt-white;
   height: 100%;
 }
+//viewerSize extender outter div of the textEditor
+
+.viewerSize {
+  margin: $editor-margin;
+  width: 80vw;
+  height: 78%;
+}
+// hamburgerIcon animation and style
+
+.bar {
+  width: 35px;
+  height: 5px;
+  background-color: $rt-purple;
+  margin: 6px 0;
+  transition: 0.4s;
+}
 
 .hamburgerIcon {
   display: inline-block;
   cursor: pointer;
 
-  .bar1,
-  .bar2,
+  .bar1 {
+    @extend .bar;
+  }
+
+  .bar2 {
+    @extend .bar;
+  }
+
   .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: $rt-purple;
-    margin: 6px 0;
-    transition: 0.4s;
+    @extend .bar;
+  }
+}
+
+.change {
+  .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .bar2 {
+    opacity: 0;
+  }
+
+  .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
   }
 }
 //Navs
@@ -34,9 +68,8 @@ body {
 
 .second {
   color: $rt-white;
-  display: flex;
-  flex-flow: row;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
   padding: 2%;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .1);
 
@@ -68,9 +101,7 @@ form {
 //draft editor styling newpost
 
 .textEditorWrapper {
-  margin: $editor-margin;
-  width: 80vw;
-  height: 78%;
+  @extend .viewerSize;
   border: 1px solid $rt-green;
 
   .DraftEditor-root {
@@ -142,8 +173,8 @@ form {
 // drastf teditor read only  styling showPost
 
 .showPost {
-  margin: $editor-margin;
   border: 1px solid $rt-purple;
+  @extend .viewerSize;
 
   .DraftEditor-root {
     height: 500px;
@@ -157,9 +188,7 @@ form {
 //draft editor styling update post
 
 .UpdatePost {
-  margin: $editor-margin;
-  width: 80vw;
-  height: 78%;
+  @extend .viewerSize;
   border: 1px solid $rt-purple;
 
   .DraftEditor-root {
@@ -170,6 +199,11 @@ form {
       width: 100%;
       height: 100%;
     }
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
   }
 }
 // div {

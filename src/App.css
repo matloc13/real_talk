@@ -1,30 +1,42 @@
 body {
-  background-color: ghostwhite;
+  background-color: #fbffff;
   height: 100%; }
+
+.viewerSize, .textEditorWrapper, .showPost, .UpdatePost {
+  margin: 3% auto;
+  width: 80vw;
+  height: 78%; }
+
+.bar, .hamburgerIcon .bar1, .hamburgerIcon .bar2, .hamburgerIcon .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #663255;
+  margin: 6px 0;
+  transition: 0.4s; }
 
 .hamburgerIcon {
   display: inline-block;
   cursor: pointer; }
-  .hamburgerIcon .bar1,
-  .hamburgerIcon .bar2,
-  .hamburgerIcon .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #663255;
-    margin: 6px 0;
-    transition: 0.4s; }
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px); }
+.change .bar2 {
+  opacity: 0; }
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px); }
 
 .navbar {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  background-color: ghostwhite; }
+  background-color: #fbffff; }
 
 .second {
-  color: ghostwhite;
-  display: flex;
-  flex-flow: row;
-  justify-content: flex-end;
+  color: #fbffff;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
   padding: 2%;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1); }
   .second a {
@@ -45,9 +57,6 @@ form {
   display: none; }
 
 .textEditorWrapper {
-  margin: 3% auto;
-  width: 80vw;
-  height: 78%;
   border: 1px solid #3b6632; }
   .textEditorWrapper .DraftEditor-root {
     height: 500px;
@@ -91,7 +100,6 @@ form {
     background-color: #fefdfb; }
 
 .showPost {
-  margin: 3% auto;
   border: 1px solid #663255; }
   .showPost .DraftEditor-root {
     height: 500px; }
@@ -100,9 +108,6 @@ form {
       height: 100%; }
 
 .UpdatePost {
-  margin: 3% auto;
-  width: 80vw;
-  height: 78%;
   border: 1px solid #663255; }
   .UpdatePost .DraftEditor-root {
     height: 500px;
@@ -110,5 +115,8 @@ form {
     .UpdatePost .DraftEditor-root .DraftEditor-editorContainer {
       width: 100%;
       height: 100%; }
+  .UpdatePost button {
+    border: none;
+    background-color: inherit; }
 
 /*# sourceMappingURL=App.css.map */
